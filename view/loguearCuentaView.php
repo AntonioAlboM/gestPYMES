@@ -1,6 +1,4 @@
-<?php 
-include '/../css/inc/navbar.php';
-?>
+
 <!DOCTYPE html>
 <html>
     <head>

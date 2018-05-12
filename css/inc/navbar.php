@@ -5,32 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>gestPYMES</title>
         <?php include 'link.php'; 
-            //session_start(); 
+        //session_start(); 
         ?>
 
     </head>
 
     <body>
         <header>
-            <!-- Navigation -->
             <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
                 <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <h2>gestPYMES</h2>
-                    </a>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                        <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
+                            <button type="submit" class="nav-link btn navbar-brand btn-link Nosotros" >
+                                <h2 class="logo">gestPYMES</h2>
+                            </button></form>
+
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                      <span class="oi oi-home"></span> Inicio
+                                        <span class="oi oi-home"></span> Inicio
                                     </button></form>
                             </li>
                             <li class="nav-item">
-<!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
+                                <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
                                 <form action="<?php echo $helper->url('Empresa','nosotros'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                      <span class="oi oi-globe"></span> Nosotros
+                                        <span class="oi oi-globe"></span> Nosotros
                                     </button></form>
                             </li>
                             <li class="nav-item dropdown ">
@@ -41,12 +46,17 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><span class="oi oi-location"></span>&nbsp;Contacto</a>
+
+                                <form action="<?php echo $helper->url('Empresa','contacto'); ?>" method="POST">
+                                    <button type="submit" class="nav-link btn btn-link" >
+                                        <span class="oi oi-location"></span> Contacto
+                                    </button></form>
                             </li>
-                             <li class="nav-item" >
+                            <li class="nav-item" >
                                 <a class="nav-link"  href="#" data-toggle="modal" data-target="#loginModal"><span class="oi oi-account-login"></span>&nbsp;Acceso</a>
                             </li> 
                         </ul>
+
                     </div>
                 </div>
             </nav>
@@ -60,7 +70,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                         <!--   <form action="logica/login.php" method="post" role="form" class="login" data-form="login">-->
+                            <!--   <form action="logica/login.php" method="post" role="form" class="login" data-form="login">-->
                             <form action="<?php echo $helper->url('Empresa','loguearCuenta'); ?>" id="log" method="POST">
 
                                 <div class="form-group">
@@ -96,4 +106,4 @@
                 </div>
             </div>
         </header>
- 
+
