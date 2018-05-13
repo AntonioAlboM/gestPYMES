@@ -1,5 +1,6 @@
 <?php 
 include '/../css/inc/navbar.php';
+    include'/../css/inc/prueba.php';
 ?>
 	<!DOCTYPE html>
 	<html>

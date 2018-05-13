@@ -120,9 +120,11 @@ class EmpresaController extends ControladorBase{
 
 						// muestro la vista de REGISTRO OK
 						?>
+<!--
 						<script type="text/javascript">
 							alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 						</script>
+-->
 						<?php 
 						$this->view("index", array(
 						));

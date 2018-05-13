@@ -3,9 +3,9 @@ header{
     padding-top: 20px;
 }
 
-#contenido{
-    margin-top: 100px;
-    margin-bottom:100px;
+#contenido, .contactoView{
+    margin-top: 50px;
+    margin-bottom:50px;
 }
 .icono{
     font-size: 150px;
@@ -33,7 +33,7 @@ footer{
     padding-bottom: 25px;
     padding-top: 15px;
     font-size: 20px;
-    margin-top:25px;
+    /*margin-top:25px;*/
 }
 .iconosFooter li{
     font-size: 30px;
@@ -67,9 +67,21 @@ padding-top:0px;}
 padding:20px;
 }
 
-.contacto{
+.contacto, .registro{
 background-color: gainsboro;
 padding-top:20px;
 padding-bottom:20px;
 border: 1px solid #B0ACAC;
+}
+.contenedorRegistro,{
+    padding-top:50px;
+    padding-bottom:50px;
+   
+}
+
+
+.crearEmpresa{
+    background-image: url("/gestpymes/css/img/registro.jpg");
+    padding:1px;
+    opacity: 0.9;
 }

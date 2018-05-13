@@ -12,7 +12,7 @@ include '/../css/inc/navbar.php';
 </header>
 <section >
     <!-- Page Content -->
-    <div class="container">
+    <div class="container contactoView">
 
         <div class="row justify-content-around">
             <div class="col-sm-7 contacto rounded">
@@ -20,19 +20,27 @@ include '/../css/inc/navbar.php';
                 <form>
                     <h4 class="h4formulario">Rellene el formulario para recibir información</h4>
                     <div class="form-row">
-                        <label for="colFormLabel" class="col-form-label"><i class="fas fa-user-tie"></i></label>
-                        <div class="form-group col-md-3">
+                        <div class="input-group mb-4 mr-sm-4 col-md-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-user-tie"></i></div>
+                            </div>
                             <input class="form-control all-elements-tooltip" type="text" placeholder="Nombre" required name="nombre" data-toggle="tooltip"  title="Nombre" >
                         </div>
-                        <label for="colFormLabel" class="col-form-label"><i class="fas fa-at"></i></label>
-                        <div class="form-group col-md-3">
 
-                            <input class="form-control all-elements-tooltip" type="email" class="form-control" required name="email" placeholder="e-mail" title="e-mail">
+                        <div class="input-group mb-4 mr-sm-4 col-md-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-at"></i></div>
+                            </div>
+                            <input class="form-control all-elements-tooltip" type="email"  required name="email" placeholder="e-mail" title="e-mail">
                         </div>
-                        <label for="colFormLabel" class="col-form-label"><i class="fas fa-phone"></i></label>
-                        <div class="form-group col-md-3">
-                            <input class="form-control all-elements-tooltip" type="text" placeholder="Teléfono" required name="telefono" data-toggle="tooltip"  title="Teléfono" >
+
+                        <div class="input-group mb-4 mr-sm-4 col-md-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-phone"></i></div>
+                            </div>
+                             <input class="form-control all-elements-tooltip" type="text" placeholder="Teléfono" required name="telefono" data-toggle="tooltip"  title="Teléfono" >
                         </div>
+
                     </div>
                     <div class="form-row">
                         <label  class="col-form-label">Escriba su mensaje:</label>
