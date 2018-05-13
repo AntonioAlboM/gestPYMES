@@ -10,7 +10,7 @@ include '/../css/inc/navbar.php';
     </div>
 
 </header>
-<section >
+<section class="contactoBody">
     <!-- Page Content -->
     <div class="container contactoView">
 

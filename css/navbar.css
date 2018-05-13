@@ -40,7 +40,7 @@ footer{
     margin-right: 90px;
 }
 
- .nosotros{
+.nosotros{
     margin-top: 100px;
 }
 
@@ -50,43 +50,85 @@ footer{
     padding:0;
 }
 .card{
-background-color: gainsboro;
+    background-color: gainsboro;
 }
 
 .logo{
-color:white;
+    color:white;
 }
 .map{
-width: 100%;
+    width: 100%;
 
 }
 .mapa{
-padding-top:0px;}
+    padding-top:0px;}
 
 .h4formulario{
-padding:20px;
+    padding:20px;
 }
 
 .contacto, .registro{
-background-color: gainsboro;
-padding-top:20px;
-padding-bottom:20px;
-border: 1px solid #B0ACAC;
+    background-color: gainsboro;
+    padding-top:20px;
+    padding-bottom:20px;
+    border: 1px solid #B0ACAC;
 }
-.registro{
-opacity:0.8;
+.registro, .contacto{
+    opacity:0.8;
 }
 .contenedorRegistro,{
     padding-top:50px;
     padding-bottom:50px;
-   
+
 }
 
 
 .crearEmpresa{
     background-image: url("/gestpymes/css/img/registro.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
     padding:1px;
-    opacity: 0.9;
+    opacity: 0.99;
     padding-top:50px;
     padding-bottom: 50px;
+}
+
+.contactoBody{
+    background-image: url("/gestpymes/css/img/contacto.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding:1px;
+    opacity: 0.99;
+    padding-top:50px;
+    padding-bottom: 50px;
+    margin-top:-50px;
+}
+
+
+
+.servicio{
+    margin-top: 50px;
+    border: 1px solid #B0ACAC;
+    background-color: gainsboro;
+    padding-right:0;
+}
+
+
+#serviciosEmpresa{
+    padding-top:50px;
+    padding-bottom:50px;
+    background-image: url("/gestpymes/css/img/company.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding:1px;
+    
+    padding-top:50px;
+    padding-bottom: 50px;
+    
+
+}
+#serviciosEmpresa .titulo{
+background-color: gainsboro;
+width: 100%
 }

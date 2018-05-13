@@ -28,28 +28,43 @@
                             <li class="nav-item">
                                 <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                        <span class="oi oi-home"></span> Inicio
+                                        <span class="oi oi-home"></span>&nbsp; Inicio
                                     </button></form>
                             </li>
                             <li class="nav-item">
                                 <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
                                 <form action="<?php echo $helper->url('Empresa','nosotros'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                        <span class="oi oi-globe"></span> Nosotros
+                                        <span class="oi oi-globe"></span>&nbsp; Nosotros
                                     </button></form>
                             </li>
                             <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle" href="#" id="servicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="oi oi-menu"></span>&nbsp;Servicios</a>
                                 <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
-                                    <a class="dropdown-item text-muted" href="#">Empresa</a>
-                                    <a class="dropdown-item text-muted" href="#">Empleado</a>
+                                    <!--
+<a class="dropdown-item text-muted" href="#"><i class="fas fa-user-tie"></i>&nbsp;Empresa</a>
+
+-->
+
+                                    <form action="<?php echo $helper->url('Empresa','empresa'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empresa" >
+                                            <i class="fas fa-building"></i>&nbsp;Empresa
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','empleado'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                            <i class="fas fa-user-tie"></i>&nbsp;Empleado
+                                        </button></form>
+
+
+
+
                                 </div>
                             </li>
                             <li class="nav-item">
 
                                 <form action="<?php echo $helper->url('Empresa','contacto'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link" >
-                                        <span class="oi oi-location"></span> Contacto
+                                        <span class="oi oi-location"></span> &nbsp;Contacto
                                     </button></form>
                             </li>
                             <li class="nav-item" >
