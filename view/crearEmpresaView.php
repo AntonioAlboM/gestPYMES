@@ -8,9 +8,17 @@ include '/../css/inc/navbar.php';
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-md-5">
-                        <p>We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). CSS [source maps](https://developers.google.com/web/tools/chrome-devtools/debug/readability/source-maps) (`bootstrap.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`bootstrap.bundle.js` and minified `bootstrap.bundle.min.js`) include [Popper](https://popper.js.org/), but not [jQuery](https://jquery.com/).
-
-                        </p>
+                        <div class="jumbotron registro">
+                            <h1 class="display-4">Regístrese</h1>
+                            <p class="lead">Rellene el formulario y comience ya a gestionar a los empleados de su empresa.</p>
+                            <hr class="my-4">
+                            <ul class="lead list">
+                                <li class="oi oi-check">&nbsp;Totalmente gratuito</li>
+                                <li class="oi oi-check">&nbsp;Gestione a sus empleados de una forma rápida</li>
+                                <li class="oi oi-check">&nbsp;Ahorre tiempo en papeleos y trámites con sus empleados</li>
+                                 <li class="oi oi-check">&nbsp;Aumente la productividad de manera fácil y cómoda</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-md-6 registro rounded">
                         <div class="row justify-content-center">
