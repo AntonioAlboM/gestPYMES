@@ -53,6 +53,10 @@ class EmpresaController extends ControladorBase{
 				$this->view("empresa", array());
 		}
     
+         public function empleado(){
+			// cargamos la seccion "nosotros"
+				$this->view("empleado", array());
+		}
     
         public function contacto(){
 			// cargamos la seccion "nosotros"
