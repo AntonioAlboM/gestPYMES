@@ -253,6 +253,7 @@ class EmpresaController extends ControladorBase{
 						$_SESSION['gerente'] = $empresaEnBaseDeDatos[0]; //guardo el usuario
 						$_SESSION['passGerente'] = $empresaEnBaseDeDatos[1]; //guardo el pass
 						$_SESSION['idEmpresa'] = $empresaEnBaseDeDatos[2]; //guardo idEmpresa
+                        $_SESSION['logo'] = $empresaEnBaseDeDatos[3]; //guardo logo
 						
 						// redireccciono al controlador y el metodo logueo
 						//$this->redirect("Empresa","logueo");

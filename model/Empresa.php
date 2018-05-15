@@ -124,7 +124,7 @@ class Empresa extends EntidadBase{
                     mkdir("../gestpymes/logo/");
                 }
                 $directorio = "../gestpymes/logo/";
-                $destino = $directorio.$_FILES['logo']['name'];
+                $this->logo = $directorio.$_FILES['logo']['name'];
                 if (!is_file($destino)) {
                     move_uploaded_file($_FILES['logo']['tmp_name'],$destino);}}}
 
@@ -139,7 +139,7 @@ class Empresa extends EntidadBase{
             ."'".$this->sector."',"
             ."'".$this->gerente."',"
             ."'".$this->pass."',"
-            ."'".$destino."',"
+            ."'".$this->logo."',"
             ."'".$this->idEmpresa."'"
             .")";
 
@@ -180,7 +180,7 @@ class Empresa extends EntidadBase{
 
     public function loguearEmpresa($gerente)
     {
-        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa FROM empresas WHERE gerente = '" . $gerente . "'");
+        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa,logo FROM empresas WHERE gerente = '" . $gerente . "'");
         $consulta->execute();
 
 
@@ -188,6 +188,7 @@ class Empresa extends EntidadBase{
             $cuenta[] = $fila[0];
             $cuenta[] = $fila[1];
             $cuenta[] = $fila[2];
+            $cuenta[] = $fila[3];
         }
 
         return $cuenta;
