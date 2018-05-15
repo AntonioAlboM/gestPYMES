@@ -57,7 +57,7 @@
                 <ul class="collapse list-unstyled" id="sancionesSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link"  name = "sancionarEmpleado">
+                            <input type = "submit" class="nav-link btn navbar-brand btn-link"  name = "sancionarEmpleado" value="Sancionar">
                             
                         </form>
                     </li>
