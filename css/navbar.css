@@ -149,21 +149,21 @@ width: 100%
     display: flex;
     align-items: stretch;
 }
-#sidebar {
+/*#sidebar {
     min-width:10%;
     max-width: 10%;
     transition: all 0.3s;
     
-}
+}*/
 
 
 
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #7386D5;
-    color: #fff;
+    min-width: 150px;
+    max-width: 150px;
+    
+   
     transition: all 0.3s;
 }
 
@@ -173,7 +173,7 @@ width: 100%
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    
 }
 
 #sidebar ul.components {
@@ -186,34 +186,45 @@ width: 100%
     padding: 10px;
 }
 
-#sidebar ul li a {
+#sidebar ul li input {
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
-#sidebar ul li a:hover {
+#sidebar ul li input:hover {
     color: #7386D5;
     background: #fff;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active > input, input[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: gainsboro;
 }
 
 
-a[data-toggle="collapse"] {
+input[data-toggle="collapse"] {
     position: relative;
 }
 
-a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+input[aria-expanded="false"]::before, input[aria-expanded="true"]::before {
 /*    //content: '\e259';*/
     display: block;
     position: absolute;
     right: 20px;
-    font-family: 'Glyphicons Halflings';
     font-size: 0.6em;
 }
 a[aria-expanded="true"]::before {
 /*    //content: '\e260';*/
+}
+
+.crearEmpleado,  .registrarEmpresa{
+    display:inline;
+    margin:50px;
+}
+.tituloRegistroEmpleado{
+    margin-bottom:50px;
+}
+
+.registrarEmpresa{
+    margin-top:75px;
 }

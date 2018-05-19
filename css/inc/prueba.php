@@ -1,116 +1,98 @@
-<!--
+<script>
+    
 
 
-
-
-<div class="row">
-<div class="col-sm-2 mr-3 ">
-<nav class="nav flex-column">
-<a class="nav-link active" href="#">Active</a>
-<a class="nav-link" href="#">Link</a>
-<a class="nav-link" href="#">Link</a>
-<a class="nav-link disabled" href="#">Disabled</a>
-</nav>
-</div>
-
-<div class="col-sm-2 mr-3 ">
-<nav class="nav flex-column">
-<a class="nav-link active" href="#">Active</a>
-<a class="nav-link" href="#">Link</a>
-<a class="nav-link" href="#">Link</a>
-<a class="nav-link disabled" href="#">Disabled</a>
-</nav>
-</div></div>-->
+</script>
 <div class="wrapper">
     <!-- Sidebar Holder -->
-    <nav id="sidebar" class=" ">
+    <nav id="sidebar" class="bg-dark ">
         <div class="sidebar-header">
             <img class="img-fluid rounded float-right" src="<?php $_SESSION['logo']; ?>" alt="">
         </div>
 
-        <ul class="list-unstyled components navbar-nav ml-auto">
-            <p><?php echo $_SESSION['gerente']; ?></p>
+        <ul class="list-unstyled components ml-auto">
+            <p class="gerente"><?php echo $_SESSION['gerente']; ?></p>
             <li class="">
-                <a href="#empleadosSubmenu" data-toggle="collapse" aria-expanded="false">Empleados</a>
+                <a href="#empleadosSubmenu" class="btn btn-dark btn-md btn-block" data-toggle="collapse" aria-expanded="false" id="Empleado">Empleados</a>
                 <ul class="collapse  list-unstyled" id="empleadosSubmenu">
                     <li class="">
                         <form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
-                            <button type = "submit" class=" btn  btn-link" value = "Registrar empleado">Registrar
+                            <button type = "submit" class=" btn btn-secondary btn-sm btn-block" value = "Registrar empleado">Registrar
                             </button></form>
                     </li>
 
 
                     <li>
                         <form action="<?php echo $helper->url('Empresa','modificarEmpleado'); ?>" method="POST">
-                            <input type = "submit" class=" btn  btn-link " name = "modificarEmpleado" value = "Modificar">
-                        </form>
+                            <button type = "submit" class=" btn btn-secondary btn-sm btn-block " name = "modificarEmpleado" value = "Modificar">Modificar
+                            </button> </form>
                     </li>
                     <li>
                         <form action="<?php echo $helper->url('Empresa','eliminarEmpleado'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link " name = "eliminarEmpleado" value = "Eliminar">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block " name = "eliminarEmpleado" value = "Eliminar">Eliminar</button>
                         </form>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#sancionesSubmenu" data-toggle="collapse" aria-expanded="false">Sanciones</a>
+                <a href="#sancionesSubmenu" id="sanciones"data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Sanciones</a>
                 <ul class="collapse list-unstyled" id="sancionesSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link"  name = "sancionarEmpleado" value="Sancionar">
-                            
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "sancionarEmpleado" value="Sancionar">Sancionar</button>
+
                         </form>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#comunicadosSubmenu" data-toggle="collapse" aria-expanded="false">Comunicados</a>
+                <a href="#comunicadosSubmenu" data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false" id="comunicados">Comunicados</a>
                 <ul class="collapse list-unstyled" id="comunicadosSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','nuevoComunicado'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "NuevoComunicado" value = "Enviar Comunicado">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "NuevoComunicado" value = "Enviar">Enviar</button>
                         </form>
                     </li>
                     <li>
                         <form action="<?php echo $helper->url('Empresa','comunicadosArchivados'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "comunicadosArchivados" value = "Comunicados Anteriores">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "comunicadosArchivados" value = "Anteriores">Anteriores</button>
                         </form>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#mensajesSubmenu" data-toggle="collapse" aria-expanded="false">Mensajes</a>
+                <a href="#mensajesSubmenu" id="mensajes" data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Mensajes</a>
                 <ul class="collapse list-unstyled" id="mensajesSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','enviarMensaje'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "vacaciones" value = "Nuevo">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "nuevo" value = "Nuevo">Nuevo</button>
                         </form>
                     </li>
                     <li>
                         <form action="<?php echo $helper->url('Empresa','mensajesRecibidos'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "vacaciones" value = "Recibidos">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "recibidos" value = "Recibidos">Recibidos</button>
                         </form>
                     </li>
 
                     <li>
                         <form action="<?php echo $helper->url('Empresa','mensajesEnviados'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "permisos" value = "Enviados">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "enviados" value = "Enviados">Enviados</button>
                         </form>
                     </li>
                 </ul>
             </li>
 
             <li>
-                <a href="#calendarioSubmenu" data-toggle="collapse" aria-expanded="false">Calendario</a>
+                <a href="#calendarioSubmenu" id="calendario" data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Calendario</a>
                 <ul class="collapse list-unstyled" id="calendarioSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','vacaciones'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "vacaciones" value = "Vacaciones">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "vacaciones" value = "Vacaciones">Vacaciones</button>
                         </form>
                     </li>
                     <li>
                         <form action="<?php echo $helper->url('Empresa','permisos'); ?>" method="POST">
-                            <input type = "submit" class="nav-link btn navbar-brand btn-link "  name = "permisos" value = "Permisos">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "permisos" value = "Permisos">Permisos</button>
                         </form>
                     </li>
                 </ul>
@@ -118,27 +100,27 @@
         </ul>
     </nav>
 
-    <!-- Page Content Holder -->
-    <div id="content">
 
-        <h2>Collapsible Sidebar Using Bootstrap 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <!--<div id="content">
 
-        <div class="line"></div>
+<h2>Collapsible Sidebar Using Bootstrap 3</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="line"></div>
 
-        <div class="line"></div>
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="line"></div>
 
-        <div class="line"></div>
+<h2>Lorem Ipsum Dolor</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
+<div class="line"></div>
+
+<h3>Lorem Ipsum Dolor</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
+</div>-->
 
