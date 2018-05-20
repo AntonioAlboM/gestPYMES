@@ -9,10 +9,17 @@ class EmpresaController extends ControladorBase{
 	}
 
 
-	public function prueba(){
+	
+//    public function getGerente(){
+//        $empresa = new Empresa();
+//        $datos = $empresa->
+//        
+//    }
+//    
+    public function prueba(){
 			$empleado = new Empleado(); 
 			
-			$allEmpleados = $empleado->getEmpleados(); //consigo todos los mensajes
+			$allEmpleados = $empleado->getEmpleados($_SESSION['idEmpresa']); //consigo todos los mensajes
 			$this->view("sancionar", array(
 						"allEmpleados" => $allEmpleados
 						));
@@ -30,7 +37,10 @@ class EmpresaController extends ControladorBase{
 
 	}
 
-	
+	public function enviarComunicado(){
+			// cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
+				$this->view("enviarComunicado", array());
+		}
 		//va al formulario para registrar la empresa 
 		public function irAformCrearEmpresa(){
 			// cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
@@ -271,11 +281,20 @@ class EmpresaController extends ControladorBase{
 			session_start();
 			$_SESSION['gerente'];
 			$_SESSION['passGerente'];
-
+            $_SESSION['idEmpresa'];
 
 			// cargamos la vista registro y le pasamos valores
 			$this->view("logueo", array());
 		}
+    
+    public function cargarEmpleados(){
+       $empleado = new Empleado(); 
+			
+			$allEmpleados = $empleado->getEmpleados(); //consigo todos los mensajes
+			$this->view("sancionar", array(
+						"allEmpleados" => $allEmpleados
+						));
+    }
 		
 }
 

@@ -280,7 +280,6 @@
 
      	}
 
-		
 
   	// 	public function actualizarNick($idUsuario,$nick){
 			// $query = "UPDATE usuarios SET  nick = '$nick' WHERE idUsuario = '".$idUsuario."'";

@@ -209,6 +209,12 @@ class Empresa extends EntidadBase{
 
     }
 
+    public function devolverEmpleados($idEmpresa){
+        $consulta = $this->db()->prepare("SELECT nombre, apellidos, dni, numSanciones FROM empleados WHERE idEmpresa = '" . $idEmpresa . "'");
+        $consulta->execute();
+
+    }
+
 }
 
 ?>

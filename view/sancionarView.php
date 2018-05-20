@@ -23,6 +23,8 @@
 			<textarea name="motivoSancion"></textarea><br>
 			<input type="submit" name="btnSancionar" value="Poner Sancion">
 		</fieldset>
+        
+        <?php echo $_SESSION['idEmpresa']; ?>
 	</form>
 </body>
 </html>

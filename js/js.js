@@ -4,7 +4,7 @@ $(document).ready(function () {
         $('.all-elements-tooltip').tooltip()
     })
 
-    $('a ul button').click(function() {
+    $('a').click(function() {
         //store the id of the collapsible element
         localStorage.setItem('collapseItem', $(this).attr('href'));
     })
@@ -15,21 +15,15 @@ $(document).ready(function () {
         $(collapseItem).collapse('show')
     }
 
-// $(function () {
 
+    
+    $('#summernote').summernote({
+         lang: 'es-ES',
+        placeholder: 'Escriba el texto del comunicado',
+        tabsize: 2,
+        height: 300
+      });
 
-
-
-        $('a ul button').click(function() {
-            //store the id of the collapsible element
-            localStorage.setItem('collapseItem', $(this).attr('href'));
-        })
-      
-        var collapseItem = localStorage.getItem('collapseItem'); 
-        if (collapseItem) {
-           $(collapseItem).collapse('show')
-        }
     })
-
 
 

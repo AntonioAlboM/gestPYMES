@@ -34,9 +34,9 @@
 			return $this->db;
 
 		}
-		public function getEmpleados(){
+		public function getEmpleados($id){
 			// consulta la tabla que le pasamos ordenado por el id
-			$query = $this->db->prepare("SELECT * FROM $this->table");
+			$query = $this->db->prepare("SELECT * FROM $this->table where idEmpresa='" . $id . "'");
 			$query->execute();
 			$resultado = $query->fetchAll(PDO::FETCH_OBJ);
 			return $resultado;
