@@ -1,6 +1,9 @@
 <?php 
-include '/../css/inc/navbar.php';
-include'/../css/inc/prueba.php';
+session_start();
+if (isset($_SESSION['gerente'])){
+    include 'css/inc/navbarGerente.php';
+    include'css/inc/prueba.php';
+}
 ?>
 
 
@@ -125,7 +128,7 @@ include'/../css/inc/prueba.php';
 
                     <div class="form-row ">  
                         <div class="col offset-md-9 ">
-                            <input type="submit" name="registrarEmpresa" class="registrarEmpresa btn btn-primary" value="Registrar Empresa">
+                            <input type="submit" name="registrarEmpresa" class="registrarEmpresa btn btn-primary" value="Registrar Empleado">
                         </div>
                     </div>
                 </form> 

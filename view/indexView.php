@@ -37,13 +37,13 @@
                         <div id="carouselBussiness" class="carousel slide" data-ride="carousel" data-interval="3000">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/gestpyme/img/business1.jpg">
+                                    <img class="d-block w-100" src="/gestpymes/css/img/business1.jpg">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="/gestpyme/img/business2.jpg">
+                                    <img class="d-block w-100" src="/gestpymes/css/img/business2.jpg">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="/gestpyme/img/business3.jpg">
+                                    <img class="d-block w-100" src="/gestpymes/css/img/business3.jpg">
                                 </div>
                             </div>
                         </div>

@@ -4,13 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>gestPYMES</title>
-        <?php 
+        <?php include 'link.php'; 
         session_start(); 
-        include 'link.php';
-        include '/gestpymes/css/inc/securityPanel.php';
-       
         
-        
+        $gerente = $_SESSION['gerente'];
         ?>
 
     </head>
@@ -24,27 +21,38 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
-                        <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
+                        <form action="<?php echo $helper->url('Empresa','logueo'); ?>" method="POST">
                             <button type="submit" class="nav-link btn navbar-brand btn-link Nosotros" >
                                 <h2 class="logo">gestPYMES</h2>
                             </button></form>
 
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
-                                    <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                        <span class="oi oi-home"></span>&nbsp; Inicio
-                                    </button></form>
-                            </li>
+                           <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-users"></i>&nbsp;Empleados</a>
+                                <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
+                                    
+                                    <form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empresa" >
+                                            <i class="fas fa-hand-point-up"></i>&nbsp;Registrar
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','modificarEmpleado'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                            <i class="fas fa-pencil-alt"></i>&nbsp;Modificar
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','eliminarEmpleado'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                            <i class="fas fa-trash-alt"></i>&nbsp;Eliminar
+                                        </button></form>
+                               </div></li>
                             <li class="nav-item">
                                 <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
-                                <form action="<?php echo $helper->url('Empresa','nosotros'); ?>" method="POST">
+                                <form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                        <span class="oi oi-globe"></span>&nbsp; Nosotros
+                                        <i class="fas fa-shield-alt"></i>&nbsp; Sancionar
                                     </button></form>
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#" id="servicios" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="oi oi-menu"></span>&nbsp;Servicios</a>
+                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-envelope"></i>&nbsp;Comunicados</a>
                                 <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
                                     <!--
 <a class="dropdown-item text-muted" href="#"><i class="fas fa-user-tie"></i>&nbsp;Empresa</a>
@@ -53,11 +61,11 @@
 
                                     <form action="<?php echo $helper->url('Empresa','empresa'); ?>" method="POST">
                                         <button type="submit" class="nav-link btn btn-link empresa" >
-                                            <i class="fas fa-building"></i>&nbsp;Empresa
+                                           <i class="fab fa-facebook-messenger"></i>&nbsp;Enviar 
                                         </button></form>
                                     <form action="<?php echo $helper->url('Empresa','empleado'); ?>" method="POST">
                                         <button type="submit" class="nav-link btn btn-link empleado" >
-                                            <i class="fas fa-user-tie"></i>&nbsp;Empleado
+                                           <i class="fas fa-clock"></i>&nbsp;Anteriores
                                         </button></form>
 
 
@@ -65,65 +73,36 @@
 
                                 </div>
                             </li>
-                            <li class="nav-item">
-
-                                <form action="<?php echo $helper->url('Empresa','contacto'); ?>" method="POST">
-                                    <button type="submit" class="nav-link btn btn-link" >
-                                        <span class="oi oi-location"></span> &nbsp;Contacto
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-comment"></i>&nbsp;Mensajes</a>
+                                <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
+                                    
+                                    <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empresa" >
+                                            <i class="fas fa-comment-alt"></i>&nbsp;Nuevo
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','mensajesRecibidos'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                            <i class="fas fa-comments"></i>&nbsp;Recibidos
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','mensajesEnviados'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                            <i class="fas fa-bookmark"></i>&nbsp;Enviados
+                                        </button></form>
+                               </div></li>
+                             <li class="nav-item">
+                                <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
+                                <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
+                                    <button type="submit" class="nav-link btn btn-link Nosotros" >
+                                        <i class="fas fa-sign-out-alt"></i>&nbsp;Salir
                                     </button></form>
                             </li>
-                            <li class="nav-item" >
-                                <a class="nav-link"  href="#" data-toggle="modal" data-target="#loginModal"><span class="oi oi-account-login"></span>&nbsp;Acceso</a>
-                            </li> 
                         </ul>
 
                     </div>
                 </div>
             </nav>
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-                <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" text-center text-primary id="exampleModalLabel"><span class="oi oi-account-login"></span>&nbsp;Iniciar sesión</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!--   <form action="logica/login.php" method="post" role="form" class="login" data-form="login">-->
-                            <form action="<?php echo $helper->url('Empresa','loguearCuenta'); ?>" id="log" method="POST">
-
-                                <div class="form-group">
-                                    <label><span class="oi oi-person"></span>&nbsp;Nombre de usuario</label>
-                                    <input type="text" class="form-control" name="nombre-login" placeholder="Escribe tu usuario" required=""/>
-                                </div>
-                                <div class="form-group">
-                                    <label><span class="oi oi-lock-locked"></span>&nbsp;Contraseña</label>
-                                    <input type="password" class="form-control" name="clave-login" placeholder="Escribe tu contraseña" required=""/>
-                                </div>
-
-                                <p>¿Cómo iniciarás sesión?</p>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name='empresa' value="Empleado" checked>
-                                        Empleado
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name='empresa' value="Empresa">
-                                        Empresa
-                                    </label>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary btn-sm">Iniciar sesión</button>
-                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-                                </div>
-                                <div class="RespuestaLogin" style="width: 100%; text-align: center; margin: 0;"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+                
         </header>
 

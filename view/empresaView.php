@@ -1,5 +1,5 @@
 <?php 
-include '/../css/inc/navbar.php';
+include 'css/inc/navbar.php';
 ?>
 <section id="intro">
     <div class="container">

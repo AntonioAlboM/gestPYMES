@@ -21,8 +21,9 @@ $(document).ready(function () {
          lang: 'es-ES',
         placeholder: 'Escriba el texto del comunicado',
         tabsize: 2,
-        height: 300
-      });
+        height: 300,
+              });
+    $('#summernote').summernote('justifyLeft');
 
     })
 

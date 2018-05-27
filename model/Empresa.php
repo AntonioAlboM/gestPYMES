@@ -180,15 +180,15 @@ class Empresa extends EntidadBase{
 
     public function loguearEmpresa($gerente)
     {
-        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa,logo FROM empresas WHERE gerente = '" . $gerente . "'");
+        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa FROM empresas WHERE gerente = '" . $gerente . "'");
         $consulta->execute();
 
 
         while ($fila = $consulta->fetch()) {
-            $cuenta[] = $fila[0];
-            $cuenta[] = $fila[1];
-            $cuenta[] = $fila[2];
-            $cuenta[] = $fila[3];
+            $cuenta[] = $fila[0]; //gerente
+            $cuenta[] = $fila[1]; //pass
+            $cuenta[] = $fila[2]; //idEmpresa
+            $cuenta[] = $fila[3]; //logo
         }
 
         return $cuenta;
@@ -206,12 +206,6 @@ class Empresa extends EntidadBase{
         }
 
         return $num;
-
-    }
-
-    public function devolverEmpleados($idEmpresa){
-        $consulta = $this->db()->prepare("SELECT nombre, apellidos, dni, numSanciones FROM empleados WHERE idEmpresa = '" . $idEmpresa . "'");
-        $consulta->execute();
 
     }
 

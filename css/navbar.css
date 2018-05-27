@@ -146,8 +146,9 @@ width: 100%
 }
 
 .wrapper {
-    display: flex;
-    align-items: stretch;
+    display:flex;
+        
+            align-items: stretch;
 }
 /*#sidebar {
     min-width:10%;
@@ -217,19 +218,39 @@ a[aria-expanded="true"]::before {
 /*    //content: '\e260';*/
 }
 
-.crearEmpleado,  .registrarEmpresa{
+.crearEmpleado,  .registrarEmpresa, .modificarEmpleado{
     display:inline;
     margin:50px;
 }
 .tituloRegistroEmpleado{
     margin-bottom:50px;
+    
 }
 
 .registrarEmpresa{
     margin-top:75px;
 }
 
-.enviarComunicado{
+.enviarComunicado, .sancionarEmpleado, .comunicadosArchivados {
     margin-top:50px;
      margin-bottom:50px;
+   
+    display:grid;
+}
+
+.cargarEmpleados{
+ background: gainsboro;
+border: 2px solid #B0ACAC; 
+}
+
+.tituloComunicado{
+margin-bottom:50px;
+}
+
+
+
+.notfound{
+color:red;
+    margin:50px;
+    
 }

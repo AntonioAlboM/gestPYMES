@@ -1,40 +1,56 @@
 <?php 
-include '/../css/inc/navbar.php';
-include'/../css/inc/prueba.php';
+session_start();
+if (isset($_SESSION['gerente'])){
+    include 'css/inc/navbarGerente.php';
+    include'css/inc/prueba.php';
+}
 ?>
 
 
-<section class="enviarComunicado col-md-10">
-    
-        <div class="col rounded">
-            <div class="row justify-content-center">
-                <h4 class="h4 tituloComunicado"><i class="fas fa-envelope"></i>&nbsp;Enviar comunicado</h4>
-            </div>
-            <div class="form-row justify-content-center">
-                <form action="<?php echo $helper->url('Empresa','enviarComunicado'); ?>" method="POST">
+<div  class="container  enviarComunicado ">
+    <div class="row justify-content-center">
+        <div>
+            <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-envelope"></i>&nbsp;Enviar comunicado</h4>
+        </div>
 
+        <div class="form-row  summernote justify-content-center">
+            <div class="col-10 offset-1">
+                <form action="<?php echo $helper->url('Empresa','guardarComunicado'); ?>" method="POST">
 
                     <div class="form-row ">
-                        <div class="col">
-                            <textarea id="summernote" name="comunicado"></textarea><br>
-                           
-                        </div>
+                        <div class="input-group mb-4 ">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-heading"></i></div>
+                            </div>
+                            <input class="form-control all-elements-tooltip" type="text"  required name="titulo" placeholder="Título" title="titulo">
+                        
                     </div>
+                    <div class="container summernote ">
+                        <div class="row">
+                            <div class="col-md-12">
+
+
+                                <textarea id="summernote"  name="cuerpo"></textarea><br>
+                            </div>
+                        </div>
+                    </div>           
+
 
                     <div class="form-row ">  
-                        <div class="col offset-md-9 ">
+                        <div class="col offset-md-10 ">
                             <input type="submit" name="comunicado" class="comunicado btn btn-primary" value="Enviar comunicado">
                         </div>
                     </div>
+                        </div>
                 </form> 
             </div> 
-      
+
+        </div>
 
     </div>
-</section>
 
 
-
+</div>
 
 </div>
 

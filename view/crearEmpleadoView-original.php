@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-	<title></title>
-</head>
-<body>
+<?php 
+include '../css/inc/navbar.php';
+    include'../css/inc/prueba.php';
+?>
 	<fieldset>
 		<legend><h4>Registro de empleado</h4></legend>
 		<form action="<?php echo $helper->url('Empresa','registrarEmpleado'); ?>" method="POST">
@@ -28,5 +25,3 @@
 
 	</fieldset>
 		<?php include 'css/inc/footer.php'; ?>
-</body>
-</html>

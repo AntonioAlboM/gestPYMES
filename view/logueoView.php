@@ -1,6 +1,11 @@
 <?php 
-include '/../css/inc/navbar.php';
-    include'/../css/inc/prueba.php';
+session_start();
+if (isset($_SESSION['gerente'])){
+    include 'css/inc/navbarGerente.php';
+    include'css/inc/prueba.php';
+}
+
+
 ?>
 
 

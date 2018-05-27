@@ -1,8 +1,6 @@
-<script>
-    
-
-
-</script>
+<?php 
+//session_start();
+ ?>
 <div class="wrapper">
     <!-- Sidebar Holder -->
     <nav id="sidebar" class="bg-dark ">
@@ -13,15 +11,9 @@
         <ul class="list-unstyled components ml-auto">
             <p class="gerente"><?php echo $_SESSION['gerente']; ?></p>
             <li class="">
+                <a href="<?php echo "index.php?controller=Empresa&action=inicioGerente"; ?>" class="btn btn-dark btn-md btn-block" >Inicio</a>
                 <a href="#empleadosSubmenu" class="btn btn-dark btn-md btn-block" data-toggle="collapse" aria-expanded="false" id="Empleado">Empleados</a>
                 <ul class="collapse  list-unstyled" id="empleadosSubmenu">
-                       <li class="">
-                        <form action="<?php echo $helper->url('Empresa','visualizarEmpleados'); ?>" method="POST">
-                            <button type = "submit" class=" btn btn-secondary btn-sm btn-block" value = "Visualizar empleados">Visualizar
-                            </button></form>
-                    </li>
-
-                    
                     <li class="">
                         <form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
                             <button type = "submit" class=" btn btn-secondary btn-sm btn-block" value = "Registrar empleado">Registrar
@@ -71,7 +63,7 @@
                 <a href="#mensajesSubmenu" id="mensajes" data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Mensajes</a>
                 <ul class="collapse list-unstyled" id="mensajesSubmenu">
                     <li>
-                        <form action="<?php echo $helper->url('Empresa','enviarMensaje'); ?>" method="POST">
+                        <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
                             <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "nuevo" value = "Nuevo">Nuevo</button>
                         </form>
                     </li>

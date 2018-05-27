@@ -3,12 +3,10 @@
 		class Mensaje extends EntidadBase{
 
 				private $database;
-				private $idMensaje; //A.I
-				private $nick;
-				private $fecha; 
-				private $texto;
-				private $destinatario;
-				private $publico;
+				private $emisor; //idUsuario emisor
+				private $idConversacion; //generada aleatoriamente
+				private $cuerpoMensaje; //texto mensaje
+				private $receptor; //idUsuario receptor
 
 				public function __construct(){
 					$table = "mensajes";
@@ -16,111 +14,67 @@
 				}
 
 				
-			public function getTexto()
+			public function getEmisor()
 			{
-			    return $this->texto;
+			    return $this->emisor;
 			}
 			
-			public function setTexto($texto)
+			public function setEmisor($emisor)
 			{
-			    $this->texto = $texto;
-			    return $this;
-			}
-
-			public function getNick()
-			{
-			    return $this->nick;
-			}
-			
-			public function setNick($nick)
-			{
-			    $this->nick = $nick;
-			    return $this;
-			}
-
-			public function getIdMensaje()
-			{
-			    return $this->idMensaje;
-			}
-			
-			public function setIdMensaje($idMensaje)
-			{
-			    $this->idMensaje = $idMensaje;
-			    return $this;
-			}
-			public function getFecha()
-			{
-			    return $this->fecha;
-			}
-			
-			public function setFecha($fecha)
-			{
-			    $this->fecha = $fecha;
-			    return $this;
-			}
-
-			public function getDestinatario()
-			{
-			    return $this->destinatario;
-			}
-			
-			public function setDestinatario($destinatario)
-			{
-			    $this->destinatario = $destinatario;
-			    return $this;
-			}
-
-			public function getPublico()
-			{
-			    return $this->publico;
-			}
-			
-			public function setPublico($publico)
-			{
-			    $this->publico = $publico;
+			    $this->emisor = $emisor;
 			    return $this;
 			}
 				
-				
-
-
-
-			public function guardarMensaje(){
-				$query = "INSERT INTO mensajes (idMensaje,nick,fecha,texto,destinatario,publico)". " VALUES('".$this->idMensaje."',"
-									."'".$this->nick."',"
-									."'".$this->fecha."',"
-									."'".$this->texto."',"
-									."'".$this->destinatario."',"
-									."'".$this->publico."'"
-									.")";
-
-				$guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
-				$guardarMpublic = $guardar->execute();
-				
-				return $guardarMpublic;
-
+			public function getIdConversacion()
+			{
+				return $this->idConversacion;
 			}
+				
+			public function setIdConversacion($idConversacion)
+			{			
+				$this->idConversacion = $idConversacion;
+				return $this;
+			}	
+
+			public function getCuerpoMensaje()
+			{
+			    return $this->cuerpoMensaje;
+			}
+			
+			public function setCuerpoMensaje($cuerpoMensaje)
+			{
+			    $this->cuerpoMensaje = $cuerpoMensaje;
+			    return $this;
+			}
+
+			public function getReceptor()
+			{
+			    return $this->receptor;
+			}
+			
+			public function setReceptor($receptor)
+			{
+			    $this->receptor = $receptor;
+			    return $this;
+			}
+
+			
+
+			
 
 			public function guardarMensajePrivado(){
-				$query = "INSERT INTO mensajes (idMensaje,nick,fecha,texto,destinatario,publico)". " VALUES('".$this->idMensaje."',"
-									."'".$this->nick."',"
-									."'".$this->fecha."',"
-									."'".$this->texto."',"
-									."'".$this->destinatario."',"
-									."'".$this->publico."'"
+				$query = "INSERT INTO mensajes (id,emisor,idConversacion,cuerpoMensaje,receptor) VALUES ('".$this->id."',"
+									."'".$this->emisor."',"
+									."'".$this->idConversacion."',"
+									."'".$this->cuerpoMensaje."',"
+									."'".$this->receptor."'"
 									.")";
 
 				$guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
-				$guardarMprivate = $guardar->execute();
+				$guardarMensaje = $guardar->execute();
 				
-				return $guardarMprivate;
+				return $guardarMensaje;
 
 			}
-
-		
-
-			
-				
-
 		}
 		 ?>

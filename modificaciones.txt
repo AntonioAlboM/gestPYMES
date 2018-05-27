@@ -1,0 +1,9 @@
+Creada la parte de Comunicados
+
+He tocado el archivo EmpresaController, abajo estan los metodos que he creado
+
+Corregido error que hacia que se descuadrasen los summernotes.
+
+He creado la clase "Comunicado" y la tabla comunicados, la adjunto
+
+También he tocado el css
