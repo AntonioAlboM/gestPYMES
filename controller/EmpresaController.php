@@ -9,7 +9,7 @@ class EmpresaController extends ControladorBase{
     }
 
 
-    public function prueba(){
+    /* public function prueba(){
         $empleado = new Empleado(); 
 
         $allEmpleados = $empleado->getEmpleados(); //consigo todos los mensajes
@@ -18,13 +18,13 @@ class EmpresaController extends ControladorBase{
         ));
 
     }
+*/
+    public function enviarComunicado(){
+        // cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
+        $this->view("enviarComunicado", array());
+    }
 
-   public function enviarComunicado(){
-			// cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
-				$this->view("enviarComunicado", array());
-   }
-
-    public function sancionarEmpleado(){
+    /* public function sancionarEmpleado(){
 
         $empleado = new Empleado();
 
@@ -34,7 +34,7 @@ class EmpresaController extends ControladorBase{
         $empleado->setNombre($empleadoSancionar);
 
     }
-
+*/
 
     //va al formulario para registrar la empresa 
     public function irAformCrearEmpresa(){
@@ -106,10 +106,11 @@ class EmpresaController extends ControladorBase{
                 }
             }
 
-
+            $empresa->setIdEmpleado($idEmpresa);
             $empresa->setGerente($gerente); //seteo el idUsuario
             $empresaQueSolicitaRegistrarse = $empresa->getGerente(); //lo recojo
             $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaRegistrarse); //consulto a la base de datos el idUsuario introducido por el usuario
+            
 
             if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[0]){
 ?>
@@ -121,7 +122,6 @@ class EmpresaController extends ControladorBase{
                 ));
             }else{
 
-
                 // llamo a los setter de la instancia y les paso las variables del formulario
                 $empresa->setFechaCreacion($fechaCreacion);
                 $empresa->setTipoEmpresa($tipoEmpresa);
@@ -132,6 +132,7 @@ class EmpresaController extends ControladorBase{
                 $empresa->setLogo($logo);
                 $empresa->setIdEmpresa($idRegistroEmpresa);
                 $guardar = $empresa->guardarEmpresa();
+//                $guardarEmpGerente = $empresa->registrarEmpleadoGerente();
 
                 // muestro la vista de REGISTRO OK
 ?>
@@ -153,7 +154,6 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $empleado = new Empleado(); //creo instancia de Usuario
 
         // guardo lo que llega del formulario de registro
-        $idEmpleado = 0000;
         $nombreEmpleado = $_POST['nombreEmpleado'];
         $apellidoEmpleado = $_POST['apellidoEmpleado'];
         $dniEmpleado = $_POST['dniEmpleado'];
@@ -170,7 +170,18 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $numSanciones = 0;
         $fechaAlta = date("d.m.y"); 
 
+        while ($idEmpleadoRepetido == true) {
+                $idEmpleado = mt_rand(1,100000);
+                $empleado->setIdEmpleado($idEmpleado); 
+                $idRegistroEmpleado = $empleado->getIdEmpleado();
+                $idEmpresaBaseDatos = $empleado->comprobarIdEmpleado($idRegistroEmpresa);
 
+                if($idEmpresaBaseDatos == $idEmpleadoBaseDatos[0]){
+                    $idEmpleadoRepetido = true;
+                }else{
+                    $idEmpleadoRepetido = false;
+                }
+            }
         // llamo a los setter de la instancia y les paso las variables del formulario
         $empleado->setIdEmpleado($idEmpleado);
         $empleado->setNombre($nombreEmpleado);
@@ -194,7 +205,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
         // redireccionamos al controlador usuarios y metodo registroOk
 
- 
+
         $this->view("exito", array(
         ));
     }	
@@ -211,7 +222,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $this->view("loguearCuenta", array());
     }
 
-
+// metodo modificado 02/06/2018 por Antonio.
 
     public function loguearCuenta(){
         $rol = $_POST['empresa']; //capturo el rol del radio
@@ -233,7 +244,8 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $_SESSION['gerente'] = $empresaEnBaseDeDatos[0]; //guardo el usuario
                 $_SESSION['passGerente'] = $empresaEnBaseDeDatos[1]; //guardo el pass
                 $_SESSION['idEmpresa'] = $empresaEnBaseDeDatos[2]; //guardo idEmpresa
-                $_SESSION['logo'] = $empresaEnBaseDeDatos[3]; //guardo logo
+                $_SESSION['idEmpleado'] = $empresaEnBaseDeDatos[3]; //guardo idEmpleado
+                $_SESSION['logo'] = $empresaEnBaseDeDatos[4];
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
@@ -263,14 +275,18 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
                 $_SESSION['nombreEmpleado'] = $empleadoEnBaseDeDatos[0]; //guardo el usuario
                 $_SESSION['passEmpleado'] = $empleadoEnBaseDeDatos[1]; //guardo el pass
-                $_SESSION['idEmpleado'] = $empleadoEnBaseDeDatos[2]; //guardo idEmpresa
+                $_SESSION['id'] = $empleadoEnBaseDeDatos[2]; //guardo idEmpleado
                 $_SESSION['apellidosEmpleado'] = $empleadoEnBaseDeDatos[3]; //guardo logo
+                $_SESSION['idEmpresa'] = $empleadoEnBaseDeDatos[4]; //guardo idEmpresa
+                $empresa = new Empresa();
+                $logo = $empresa->obtenerLogo( $_SESSION['idEmpresa']); 
+                $_SESSION['logo'] = $logo;
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
 
                 // cargamos la vista registro y le pasamos valores
-                $this->view("logueo", array());
+                $this->view("logueoEmpleado", array());
             }else{
 
                 //redireccciono al controlador y el metodo logueoNotFound
@@ -298,48 +314,62 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     //ventana del chat con el empleado
     public function irAchatPrivado(){
         // cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
-        
-            
-            $_SESSION["destinatario"] = $_POST['destinatario'];
-            $mensajes = new Mensaje();
-            $mensajesChat = $mensajes->mostrarMensajes(444);
-        
-            $this->view("chatPrivado", array(
-                "mensajesChat" => $mensajesChat
-            ));
-        
+
+ $empleado = new Empleado();
+        //$_SESSION["destinatario"] = $_POST['destinatario'];
+        $_SESSION["idDestinatario"] = $_POST['destinatario'];
+       
+        $Receptor = $empleado->getDatosEmpleado($_SESSION["idDestinatario"]);
+        $nombreReceptor = $Receptor->nombre;
+        $_SESSION['nombreDestinatario'] = $nombreReceptor;
+        $emisor =  $_SESSION['idEmpleado'];
+        $mensajes = new Mensaje();
+        $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$emisor);
+
+        $this->view("chatPrivado", array(
+            "mensajesChat" => $mensajesChat
+        ));
+
     }
 
     public function guardarMensajeChat(){
         $mensaje = new Mensaje(); //creo instancia de Mensaje para chat
-            
-            // variables que quiero
-            $cuerpoMensaje = $_POST['mensaje'];
-            $receptor = $_SESSION['destinatario'];
-            $emisor =  $_SESSION['gerente'];
+
+        // variables que quiero
+        $cuerpoMensaje = $_POST['mensaje'];
+        $receptor = $_SESSION['destinatario'];
+        $emisor =  $_SESSION['gerente'];
+        $idEmisor = $_SESSION['idEmpleado'];
 
         // llamo a los setter de la instancia y les paso las variables 
-            $mensaje->setEmisor($emisor);
-            $mensaje->setIdConversacion(444);
-            $mensaje->setCuerpoMensaje($cuerpoMensaje);
-            $mensaje->setReceptor($receptor);
+        $mensaje->setEmisor($emisor);
+        $mensaje->setIdEmisor($idEmisor);
+        $mensaje->setCuerpoMensaje($cuerpoMensaje);
+        $mensaje->setIdReceptor($_SESSION["idDestinatario"]);
+        $mensaje->setReceptor($receptor);
 
-            $guardar = $mensaje->guardarMensajePrivado();
-            
-            $this->redirect("Empresa","chatPrivado");
+        $guardar = $mensaje->guardarMensajePrivado();
+
+        $this->redirect("Empresa","chatPrivado");
     }
 
     public function chatPrivado(){
         $mensajes = new Mensaje();
-        $mensajesChat = $mensajes->mostrarMensajes(444);
+        $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$_SESSION['idEmpleado']);
         //var_dump($mensajesChat);
-            $this->view("chatPrivado", array(
-                "mensajesChat" => $mensajesChat
-            ));
+        $this->view("chatPrivado", array(
+            "mensajesChat" => $mensajesChat
+        ));
     }
 
-    
-    //==========================================================
+
+    //======================CALENDARIO DAVID GOMEZ====================================
+
+    public function vacaciones(){
+        $this->view("calendarioVacaciones", array(
+            // "eventos" => $eventos
+        ));
+    }
 
     //Métodos creados por Antonio. Copialos o Sustituyelos por otros mejores
 
@@ -365,7 +395,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $datosEmpleado = $empleado->getDatosEmpleado($idEmpleado);
         $this->view("preModificarEmpleado", array(
             "datosEmpleado" => $datosEmpleado
-            ));
+        ));
 
     }
 
@@ -387,17 +417,17 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         if (borrado){
             $this->view("exito", array());
         }
-        
-    
+
+
     }
-    
-    
-       public function modificarEmpleadoAction(){
+
+
+    public function modificarEmpleadoAction(){
 
         $empleado = new Empleado(); //creo instancia de Usuario
 
         // guardo lo que llega del formulario de modificación
-        
+
         $nombreEmpleado = $_POST['nombreEmpleado'];
         $apellidoEmpleado = $_POST['apellidoEmpleado'];
         $dniEmpleado = $_POST['dniEmpleado'];
@@ -411,11 +441,11 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $cpEmpleado = $_POST['cpEmpleado'];
         $numeroEmpleado = $_POST['numeroEmpleado'];
         $idEmpleado = $_POST['id'];
-        
+
 
 
         // llamo a los setter de la instancia y les paso las variables del formulario
-       
+
         $empleado->setNombre($nombreEmpleado);
         $empleado->setApellidos($apellidoEmpleado);
         $empleado->setDni($dniEmpleado);
@@ -429,8 +459,8 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $empleado->setLetra($letraEmpleado);
         $empleado->setCp($cpEmpleado);
         $empleado->setIdEmpresa($_SESSION['idEmpresa']);
-       
-   
+
+
 
 
         $guardar = $empleado->modificarEmpleado();
@@ -440,58 +470,132 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $this->view("exito", array(
         ));
     }	
-        
-   
 
-       // Antonio -> 26/05/2018
-    
-     
-    
-    
+
+    // Antonio -> 26/05/2018
+
+
+
+
     public function guardarComunicado(){
-         $comunicado = new Comunicado(); //creo instancia de Mensaje para chat
-            
-            // variables que quiero
-            $titulo = $_POST['titulo'];
-            $cuerpoComunicado = $_POST['cuerpo'];
-            $idEmpresa = $_SESSION['idEmpresa'];
-            
+        $comunicado = new Comunicado(); //creo instancia de Mensaje para chat
+
+        // variables que quiero
+        $titulo = $_POST['titulo'];
+        $cuerpoComunicado = $_POST['cuerpo'];
+        $idEmpresa = $_SESSION['idEmpresa'];
+
 
         // llamo a los setter de la instancia y les paso las variables 
-            $comunicado->setTitulo($titulo);
-            $comunicado->setCuerpo($cuerpoComunicado);
-            $comunicado->setIdEmpresa($idEmpresa);
-        
-            $comunicado->setFecha (date('d/m/Y'));
-            
+        $comunicado->setTitulo($titulo);
+        $comunicado->setCuerpo($cuerpoComunicado);
+        $comunicado->setIdEmpresa($idEmpresa);
 
-            $guardar = $comunicado->guardarComunicado();
-            if($guardar){
+        $comunicado->setFecha (date('d/m/Y'));
+
+
+        $guardar = $comunicado->guardarComunicado();
+        if($guardar){
             $this->view("exito", array());
-            }
-            
+        }
+
     }
-    
+
     public function comunicadosArchivados(){
-        
+
         $idEmpresa = $_SESSION['idEmpresa'];
-        
+
         $comunicado = new Comunicado();
         $comunicados = $comunicado->devolverComunicados($idEmpresa);
         if($comunicados){
-        $this->view("comunicadosArchivados", array(
-            "comunicados" => $comunicados
-        ));
+            $this->view("comunicadosArchivados", array(
+                "comunicados" => $comunicados
+            ));
         }else{
-        $this->view("sinComunicados",array());
-        
+            $this->view("sinComunicados",array());
+
         }
-        
-        
+
+
+
+    }
+
+    public function cargarEmpleadosSanciones(){
+        $empleado = new Empleado(); 
+        $allEmpleados = $empleado->getEmpleadosEmpresa($_SESSION['idEmpresa']);
+        $this->view("sancionar", array(
+            "allEmpleados" => $allEmpleados
+        ));
+
+    }
+
+    public function sancionarEmpleado(){
+        //        $empleado = new Empleado();
+
+
+        $idEmpleado = $_POST["destinatario"];
+        $sancion = $_POST['sancion'];
+        $idEmpresa = $_SESSION['idEmpresa'];
+
+        $sancionar = new Sancion();
+        $sancionar->setIdEmpleado($idEmpleado);
+        $sancionar->setSancion($sancion);
+        $sancionar->setIdEmpresa($idEmpresa);
+        $sancionar->setFecha(date('d/m/Y'));
+
+
+        $guardar = $sancionar->guardarSancion();
+        if($guardar){
+
+            $this->view("exito", array());
+        }
+    }
+
+    public function sancionesArchivadas(){
+        $idEmpresa = $_SESSION['idEmpresa'];
+        $sancionar = new Sancion();
+        $sanciones = $sancionar->devolverSanciones($idEmpresa);
+         if($sanciones){   
+             
+             $this->view("sancionesArchivadas", array(
+                "sanciones" => $sanciones
+            ));
+        }else{
+            $this->view("sinSanciones",array());
+
+        }
 
     }
     
+    public function sancionesArchivadasEmpleado(){
+        $id = $_SESSION['id'];
+        $sancionar = new Sancion();
+        $sanciones = $sancionar->devolverSancionesEmpleado($id);
+         if($sanciones){   
+             
+             $this->view("sancionesArchivadasEmpleado", array(
+                "sanciones" => $sanciones
+            ));
+        }else{
+            $this->view("sinSanciones",array());
+
+        }
+    }
+
     
+    public function inicioEmpleado(){
+        if (isset ($_SESSION['nombreEmpleado'])){
+            $this->view("logueoEmpleado", array());
+        }else{
+            $this->view("index", array());
+        }
+    }
+    
+    public function salir(){
+        session_destroy();
+        $this->view("index",array());
+    }
+
 }
 
 

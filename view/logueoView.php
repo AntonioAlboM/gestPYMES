@@ -11,28 +11,81 @@ if (isset($_SESSION['gerente'])){
 
 
 
-<div id="content">
-<h1>Bienvenido a su empresa <?php echo $_SESSION['gerente']; ?></h1><br>
-				<h5>¿Qué desea hacer?</h5><br>
-			<form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
-				<input type = "submit" name = "registrarEmpleado" value = "Registrar empleado"><br>
-			</form>
-			<form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
-				<input type = "submit" name = "sancionarEmpleado" value = "Sancionar empleado"><br>
-			</form>
-				<input type = "submit" name = "enviarComunicado" value = "Enviar comunicado"><br>
-				<input type = "submit" name = "enviarMensaje" value = "Enviar mensaje"><br>
-				<input type = "submit" name = "irAmodificarDatos" value = "Modificar datos"><br><br>
-				<input type = "submit" name = "cerrarSesion" value = "Cerrar sesion">
-			
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-       
+<div class="container inicio">
+    <div class="row justify-content-center">
+        <div class="col col-md-8">
+            <div>
+                <h1 class="tituloInicio">Bienvenido a su empresa <?php echo $_SESSION['gerente']; ?></h1>
+
+            </div>
+            <div class="text-center">
+                <img class=" rounded text-center" src="<?php echo $_SESSION['logo'];?>" alt="">
+
+            </div>
+        </div>
+        <div class="container">
+            <!-- Call to Action Well -->
+            <div class="card text-white bg-secondary my-4 text-center">
+                <div class="card-body">
+                    <h2 class="text-white m-0">Inicio Rápido</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div>
+                            <img class="img-fluid rounded" src="/gestpymes/css/img/sancion.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+
+                            <h2 class="card-title"><form action="<?php echo $helper->url('Empresa','cargarEmpleadosSanciones'); ?>" method="POST">
+                            <button type = "submit" class="btn btn-secondary btn-lg btn-block"  name = "sancionarEmpleado" value="Sancionar">Sancionar</button>
+
+                        </form></h2>
+                            <p class="card-text text-justify">Sancione al empleado que ha cometido infracciones </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div>
+                            <img class="img-fluid rounded" src="/gestpymes/css/img/registrar.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title"> <form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
+                            <button type = "submit" class=" btn btn-secondary  btn-lg btn-block" value = "Registrar empleado">Registrar
+                            </button></form></h2>
+                            <p class="card-text text-justify">Registre a nuevos empleados</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div>
+                            <img class="img-fluid rounded" src="/gestpymes/css/img/comunicado.jpg" alt="">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title">  <form action="<?php echo $helper->url('Empresa','enviarComunicado'); ?>" method="POST">
+                            <button type = "submit" class="btn btn-secondary btn-lg btn-block "  name = "NuevoComunicado" value = "Enviar">Comunicado</button>
+                        </form></h2>
+                            <p class="card-text text-justify">Emita un comunicado que llegará a toda su plantilla</p>
+
+                    </div>
+                </div>
+                <!-- /.col-md-4 -->
+
+            </div>
+        </div>
+
+
+
     </div>
- 
+
 </div>
-
-
+</div>
+</div>
 
 
 

@@ -1,4 +1,11 @@
 $(document).ready(function () {
+ $('#summernote').summernote({
+         lang: 'es-ES',
+        placeholder: 'Escriba el texto',
+        tabsize: 2,
+        height: 300,
+              });
+    $('#summernote').summernote('justifyLeft');
 
     $(function () {
         $('.all-elements-tooltip').tooltip()
@@ -13,18 +20,11 @@ $(document).ready(function () {
     if (collapseItem) {
 
         $(collapseItem).collapse('show')
-    }
-
+   
+}
 
     
-    $('#summernote').summernote({
-         lang: 'es-ES',
-        placeholder: 'Escriba el texto del comunicado',
-        tabsize: 2,
-        height: 300,
-              });
-    $('#summernote').summernote('justifyLeft');
-
+   
     })
 
 

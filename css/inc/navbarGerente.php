@@ -1,15 +1,17 @@
+
+
 <!DOCTYPE html>
 <html lang="">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>gestPYMES</title>
-        <?php include 'link.php'; 
-        session_start(); 
+        
+<?php include 'link.php'; 
+//        session_start(); 
         
         $gerente = $_SESSION['gerente'];
         ?>
-
     </head>
 
     <body>
@@ -44,26 +46,32 @@
                                             <i class="fas fa-trash-alt"></i>&nbsp;Eliminar
                                         </button></form>
                                </div></li>
-                            <li class="nav-item">
-                                <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
-                                <form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
-                                    <button type="submit" class="nav-link btn btn-link Nosotros" >
-                                        <i class="fas fa-shield-alt"></i>&nbsp; Sancionar
-                                    </button></form>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shield-alt"></i>&nbsp;Sanciones</a>
+                                <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
+                                    
+                                    <form action="<?php echo $helper->url('Empresa','cargarEmpleadosSanciones'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empresa" >
+                                           <i class="fab fa-facebook-messenger"></i>&nbsp;Sancionar
+                                        </button></form>
+                                    <form action="<?php echo $helper->url('Empresa','sancionesArchivadas'); ?>" method="POST">
+                                        <button type="submit" class="nav-link btn btn-link empleado" >
+                                           <i class="fas fa-clock"></i>&nbsp;Anteriores
+                                        </button></form>  </div>
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-envelope"></i>&nbsp;Comunicados</a>
+                                <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-envelope"></i>&nbsp;Comunicados</a>
                                 <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
                                     <!--
 <a class="dropdown-item text-muted" href="#"><i class="fas fa-user-tie"></i>&nbsp;Empresa</a>
 
 -->
 
-                                    <form action="<?php echo $helper->url('Empresa','empresa'); ?>" method="POST">
+                                    <form action="<?php echo $helper->url('Empresa','enviarComunicado'); ?>" method="POST">
                                         <button type="submit" class="nav-link btn btn-link empresa" >
                                            <i class="fab fa-facebook-messenger"></i>&nbsp;Enviar 
                                         </button></form>
-                                    <form action="<?php echo $helper->url('Empresa','empleado'); ?>" method="POST">
+                                    <form action="<?php echo $helper->url('Empresa','comunicadosArchivados'); ?>" method="POST">
                                         <button type="submit" class="nav-link btn btn-link empleado" >
                                            <i class="fas fa-clock"></i>&nbsp;Anteriores
                                         </button></form>
@@ -74,25 +82,14 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown ">
-                                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-comment"></i>&nbsp;Mensajes</a>
-                                <div class="dropdown-menu text-light bg-dark" aria-labelledby="servicios">
-                                    
-                                    <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
-                                        <button type="submit" class="nav-link btn btn-link empresa" >
-                                            <i class="fas fa-comment-alt"></i>&nbsp;Nuevo
-                                        </button></form>
-                                    <form action="<?php echo $helper->url('Empresa','mensajesRecibidos'); ?>" method="POST">
-                                        <button type="submit" class="nav-link btn btn-link empleado" >
-                                            <i class="fas fa-comments"></i>&nbsp;Recibidos
-                                        </button></form>
-                                    <form action="<?php echo $helper->url('Empresa','mensajesEnviados'); ?>" method="POST">
-                                        <button type="submit" class="nav-link btn btn-link empleado" >
-                                            <i class="fas fa-bookmark"></i>&nbsp;Enviados
-                                        </button></form>
-                               </div></li>
+                                 <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
+                                    <button type="submit" class="nav-link btn btn-link Nosotros" >
+                                        <i class="fas fa-comment"></i>&nbsp;Chat
+                                    </button></form>
+                               </li>
                              <li class="nav-item">
                                 <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
-                                <form action="<?php echo $helper->url('Empresa','index'); ?>" method="POST">
+                                <form action="<?php echo $helper->url('Empresa','salir'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
                                         <i class="fas fa-sign-out-alt"></i>&nbsp;Salir
                                     </button></form>

@@ -1,5 +1,5 @@
-<footer class= "bg-dark text-muted">
-    <div class="container">
+<footer class= " align-bottom bg-dark text-muted">
+    <div class="container pie">
         <div class="row align-items-center">
             <div class="col-6">
                 <ul class="list-group">

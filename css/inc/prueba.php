@@ -5,7 +5,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar" class="bg-dark ">
         <div class="sidebar-header">
-            <img class="img-fluid rounded float-right" src="<?php $_SESSION['logo']; ?>" alt="">
+            <img class="img-fluid rounded float-right" src="<?php echo $_SESSION['logo'];?>" alt="">
         </div>
 
         <ul class="list-unstyled components ml-auto">
@@ -37,8 +37,14 @@
                 <a href="#sancionesSubmenu" id="sanciones"data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Sanciones</a>
                 <ul class="collapse list-unstyled" id="sancionesSubmenu">
                     <li>
-                        <form action="<?php echo $helper->url('Empresa','prueba'); ?>" method="POST">
+                        <form action="<?php echo $helper->url('Empresa','cargarEmpleadosSanciones'); ?>" method="POST">
                             <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "sancionarEmpleado" value="Sancionar">Sancionar</button>
+
+                        </form>
+                    </li>
+                    <li>
+                        <form action="<?php echo $helper->url('Empresa','sancionesArchivadas'); ?>" method="POST">
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "sancionarEmpleado" value="Sancionar">Anteriores</button>
 
                         </form>
                     </li>
@@ -64,18 +70,7 @@
                 <ul class="collapse list-unstyled" id="mensajesSubmenu">
                     <li>
                         <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
-                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "nuevo" value = "Nuevo">Nuevo</button>
-                        </form>
-                    </li>
-                    <li>
-                        <form action="<?php echo $helper->url('Empresa','mensajesRecibidos'); ?>" method="POST">
-                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "recibidos" value = "Recibidos">Recibidos</button>
-                        </form>
-                    </li>
-
-                    <li>
-                        <form action="<?php echo $helper->url('Empresa','mensajesEnviados'); ?>" method="POST">
-                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "enviados" value = "Enviados">Enviados</button>
+                            <button type = "submit" class="btn btn-secondary btn-sm btn-block "  name = "nuevo" value = "Nuevo">Chat</button>
                         </form>
                     </li>
                 </ul>

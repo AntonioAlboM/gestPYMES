@@ -48,7 +48,7 @@ if (isset($_SESSION['gerente'])){
                                     <div class="col-md-12">
 
 
-                                        <textarea id="summernote"  name="cuerpo"></textarea><br>
+                                        <textarea id='summernote'  name="sancion"></textarea><br>
                                     </div>
                                 </div>
                             </div>           
@@ -56,7 +56,7 @@ if (isset($_SESSION['gerente'])){
 
                             <div class="form-row ">  
                                 <div class="col offset-10 ">
-                                    <input type="submit" name="sancion" class="comunicado btn btn-primary" value="Sancionar">
+                                    <input type="submit" name="sancionar" class="comunicado btn btn-primary" value="Sancionar">
                                 </div>
                             </div>
 

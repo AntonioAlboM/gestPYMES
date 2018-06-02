@@ -96,7 +96,7 @@ if (isset($_SESSION['gerente'])){
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-sort-numeric-up"></i></div>
                                 </div>
-                                <input class="form-control all-elements-tooltip" type="number"  required name="numeroEpleado" placeholder="Número" title="Número">
+                                <input class="form-control all-elements-tooltip" type="number"  required name="numeroEmpleado" placeholder="Número" title="Número">
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@ if (isset($_SESSION['gerente'])){
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fas fa-sort-numeric-up"></i></div>
                                 </div>
-                                <input class="form-control all-elements-tooltip" type="number"   name="fas fa-sort-numeric-up" placeholder="Piso" title="Piso">
+                                <input class="form-control all-elements-tooltip" type="number"   name="pisoEmpleado" placeholder="Piso" title="Piso">
                             </div>
                         </div>
                         <div class="col-md-3">

@@ -82,7 +82,7 @@ class Comunicado extends EntidadBase{
         //                return $comunicados;
 
 
-        $query = $this->db()->prepare("SELECT * FROM comunicados");
+        $query = $this->db()->prepare("SELECT * FROM comunicados order by id desc");
         $query->execute();
         $resultado = $query->fetchAll(PDO::FETCH_OBJ);
         return $resultado;

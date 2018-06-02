@@ -3,7 +3,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 class Empresa extends EntidadBase{
 
     private $database;
-    //private $idEmpresa;
+    private $idEmpresa;
     private $fechaCreacion;
     private $tipoEmpresa;
     private $capitalSocial;
@@ -11,23 +11,14 @@ class Empresa extends EntidadBase{
     private $gerente;
     private $pass;
     private $logo;
-    //private $id; //A.I
+    private $id; //A.I
 
     public function __construct(){
         $table = "empresas";
         parent::__construct($table);
     }
 
-    /*public function getIdEmpresa()
-	{
-	    return $this->$idEmpresa;
-	}
-
-	public function setIdEmpresa($idEmpresa)
-	{
-	    $this->$idEmpresa = $idEmpresa;
-	    return $this;
-	}*/
+    
 
     public function getFechaCreacion()
     {
@@ -116,6 +107,17 @@ class Empresa extends EntidadBase{
         $this->idEmpresa = $idEmpresa;
         return $this;
     }
+
+    public function getIdEmpleado()
+    {
+        return $this->idEmpleado;
+    }
+    
+    public function setIdEmpleado($idEmpleado)
+    {
+        $this->idEmpleado = $idEmpleado;
+        return $this;
+    }
     public function guardarEmpresa(){
 
         if ((!empty($_FILES['logo']['tmp_name']))) {
@@ -126,21 +128,22 @@ class Empresa extends EntidadBase{
                 $directorio = "../gestpymes/logo/";
                 $this->logo = $directorio.$_FILES['logo']['name'];
                 if (!is_file($destino)) {
-                    move_uploaded_file($_FILES['logo']['tmp_name'],$destino);}}}
+                    move_uploaded_file($_FILES['logo']['tmp_name'],$this->logo);}}}
 
 
 
 
 
 
-        $query = "INSERT INTO empresas (fechaCreacion,tipoEmpresa,capitalSocial,sector,gerente,pass,logo,idEmpresa)". " VALUES('".$this->fechaCreacion."',"
+        $query = "INSERT INTO empresas (fechaCreacion,tipoEmpresa,capitalSocial,sector,gerente,pass,logo,idEmpresa,idEmpleado)". " VALUES('".$this->fechaCreacion."',"
             ."'".$this->tipoEmpresa."',"
             ."'".$this->capitalSocial."',"
             ."'".$this->sector."',"
             ."'".$this->gerente."',"
             ."'".$this->pass."',"
             ."'".$this->logo."',"
-            ."'".$this->idEmpresa."'"
+            ."'".$this->idEmpresa."',"
+            ."'".$this->idEmpleado."'"
             .")";
 
         $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
@@ -180,7 +183,7 @@ class Empresa extends EntidadBase{
 
     public function loguearEmpresa($gerente)
     {
-        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa FROM empresas WHERE gerente = '" . $gerente . "'");
+        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa,idEmpleado, logo FROM empresas WHERE gerente = '" . $gerente . "'");
         $consulta->execute();
 
 
@@ -188,7 +191,8 @@ class Empresa extends EntidadBase{
             $cuenta[] = $fila[0]; //gerente
             $cuenta[] = $fila[1]; //pass
             $cuenta[] = $fila[2]; //idEmpresa
-            $cuenta[] = $fila[3]; //logo
+            $cuenta[] = $fila[3]; //idEmpleado
+            $cuenta[] = $fila[4];//logo
         }
 
         return $cuenta;
@@ -207,6 +211,18 @@ class Empresa extends EntidadBase{
 
         return $num;
 
+    }
+    
+    public function obtenerLogo($idEmpresa){
+    
+    $consulta = $this->db()->prepare("SELECT logo FROM empresas WHERE idEmpresa = '" . $idEmpresa . "'");
+        $consulta->execute();
+        
+        while ($fila = $consulta->fetch()) {
+            $logo= $fila[0];
+        }
+
+        return $logo;
     }
 
 }

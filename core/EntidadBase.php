@@ -148,9 +148,9 @@ class EntidadBase{
 //======================================================================
 
 //===================David==Gomez=====Mensajeria========================
-public function mostrarMensajes(){
+public function mostrarMensajes($destinatario,$emisor){
                 // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("SELECT * FROM  $this->table ");
+        $query = $this->db->prepare("SELECT * FROM  $this->table WHERE idEmisor = $emisor AND idReceptor = $destinatario OR idEmisor = $destinatario AND idReceptor = $emisor ");
         $query->execute();
         $resultado = $query->fetchAll(PDO::FETCH_OBJ);
         return $resultado;
@@ -158,6 +158,7 @@ public function mostrarMensajes(){
 
 //======================================================================
 
+//===================David==Gomez=====Calendario========================
 
 
 }

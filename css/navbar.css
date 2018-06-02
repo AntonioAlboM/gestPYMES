@@ -3,6 +3,14 @@ header{
     padding-top:0px;
 }
 
+
+html, body {
+  height: 100%;
+}
+
+
+
+
 #contenido, .contactoView{
     margin-top: 50px;
     margin-bottom:50px;
@@ -33,11 +41,19 @@ footer{
     padding-bottom: 25px;
     padding-top: 15px;
     font-size: 20px;
+    position: relative;
+
+  height: 150px;
+  clear:both;
+ 
+  
+    
+   
     /*margin-top:25px;*/
 }
 .iconosFooter li{
     font-size: 30px;
-    margin-right: 90px;
+    margin-right: 80px;
 }
 
 .nosotros{
@@ -147,6 +163,7 @@ width: 100%
 
 .wrapper {
     display:flex;
+    
         
             align-items: stretch;
 }
@@ -163,7 +180,8 @@ width: 100%
 #sidebar {
     min-width: 150px;
     max-width: 150px;
-   
+  overflow:auto;
+  padding-bottom:150px; 
    
     transition: all 0.3s;
 }
@@ -218,7 +236,7 @@ a[aria-expanded="true"]::before {
 /*    //content: '\e260';*/
 }
 
-.crearEmpleado,  .registrarEmpresa, .modificarEmpleado{
+.crearEmpleado,  .registrarEmpresa, .modificarEmpleado, .inicio{
     display:inline;
     margin:50px;
 }
@@ -234,8 +252,9 @@ a[aria-expanded="true"]::before {
 .enviarComunicado, .sancionarEmpleado, .comunicadosArchivados {
     margin-top:50px;
      margin-bottom:50px;
+    min-height:500px;
    
-    display:grid;
+/*    display:grid;*/
 }
 
 .cargarEmpleados{
@@ -254,3 +273,31 @@ color:red;
     margin:50px;
     
 }
+
+.chat{
+margin-bottom: 50px;
+/*
+    word-wrap: break-word;
+  display:block;
+*/
+    
+}
+
+.botonChat{
+    margin-top:50px;
+}
+
+/*
+.inline{
+    display:inline-block;
+}*/
+.row{
+margin:0;
+}
+
+.tituloInicio{
+   
+    margin-bottom:50px;
+
+}
+

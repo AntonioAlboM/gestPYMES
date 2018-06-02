@@ -30,11 +30,11 @@ if (isset($_SESSION['gerente'])){
                                     $apellido= $emp->apellidos;
                                     $idEmpleado = $emp->id;
                                 ?>
-                                <tr>
-                                    <td scope="row"><?php echo $nombre; ?></td>
-                                    <td><?php echo $apellido ;?></td>
-                                    <td ><input type="radio" name="destinatario" value="<?php echo $idEmpleado; ?>"></td>
-                                </tr> 
+                                    <tr>
+                                        <td scope="row"><?php echo $nombre; ?></td>
+                                        <td><?php echo $apellido ;?></td>
+                                        <td > <input type="radio" name="destinatario" value="<?php echo $idEmpleado; ?>"></td>
+                                    </tr> 
                                 <?php  
                                 }
                                 ?>

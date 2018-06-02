@@ -240,6 +240,8 @@ class Empleado extends EntidadBase{
 
     }
 
+    
+
     public function sancionarEmpleado($nombre){
         //UPDATE `empleados` SET `numSanciones` =
         $consulta = $this->db()->prepare("SELECT nombre,numSanciones FROM usuarios WHERE nombre = '" . $nombre . "'");
@@ -263,7 +265,7 @@ class Empleado extends EntidadBase{
 
     public function loguearEmpleado($empleado)
     {
-        $consulta = $this->db()->prepare("SELECT nombre,pass,idEmpleado,apellidos FROM empleados WHERE nombre = '" . $empleado . "'");
+        $consulta = $this->db()->prepare("SELECT nombre, pass,id,apellidos, idempresa FROM empleados WHERE nombre = '" . $empleado . "'");
         $consulta->execute();
 
 
@@ -272,6 +274,7 @@ class Empleado extends EntidadBase{
             $cuenta[] = $fila[1]; //pass
             $cuenta[] = $fila[2]; //idEmpleado
             $cuenta[] = $fila[3]; //apellidos
+            $cuenta[] = $fila[4]; //idEmpresa
         }
 
         return $cuenta;
@@ -302,15 +305,19 @@ class Empleado extends EntidadBase{
     }
 
 
+public function comprobarIdEmpleado($idEmpleado)
+    {
+        $consulta = $this->db()->prepare("SELECT idEmpresa FROM empleados WHERE idEmpleado = '" . $idEmpleado . "'");
+        $consulta->execute();
 
 
+        while ($fila = $consulta->fetch()) {
+            $num = $fila[0];
+        }
 
-    // 	public function actualizarNick($idUsuario,$nick){
-    // $query = "UPDATE usuarios SET  nick = '$nick' WHERE idUsuario = '".$idUsuario."'";
-    // 	$resultado = $this->db()->prepare($query);
-    // 	$actualizacionNick = $resultado->execute();
-    // 	return $actualizacionNick;
-    // }
+        return $num;
+
+    }
 
 
 }

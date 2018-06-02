@@ -30,7 +30,7 @@ if (isset($_SESSION['gerente'])){
                             <div class="col-md-12">
 
 
-                                <textarea id="summernote"  name="cuerpo"></textarea><br>
+                                <textarea id='summernote'  name="cuerpo"></textarea><br>
                             </div>
                         </div>
                     </div>           

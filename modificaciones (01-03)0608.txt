@@ -1,0 +1,31 @@
+Modificaciones durante el fin de semana del 1 al 3 de junio.
+
+
+- Arreglado visualizacion Sanciones
+- Sanciones y Comunicados anteriores ahora ordenan por fecha
+- Arreglado logo empresa sidebar
+- Arreglado mensajeria, ahora coge el id autoincrementado (id) en lugar del que vale siempre "0"(idEmpleado)
+- Arreglado mensajería, ahora muestra el nombre del receptor en lugar del id.
+- Mensajería completada.
+- Eliminado botón loguear del index, enlazado botones información
+- Php Mailer logrado:
+	cuenta:
+	numismaticacalderilla@gmail.com:calderilla1234
+-Corregido error summernote en phpmailer
+-Añadido session_destroy al desloguearse.
+-Actualizada la navbar del gerente.
+-Index logueo Empresa-> Suseptible a cambios, queda muy cutre salchichero.
+-Arreglado subida de fotos al registrar empresa.
+- Arreglado método de logueo (loguearCuenta) para empleado y $empleadoEnBaseDeDatos = $empleado->loguearEmpleado($empleadoQueSolicitaLoguearse); ahora devuelve el id autoincrementado y no el que siempre marca 0.
+-Modificada vista "comunicadosArchivadosView.php" para que funcione con gerente o empleados.
+-Comunicados COMPLETADO
+-Creada sidebarEmpleado
+- Arreglada posicion footer
+
+-Creado método sancionesArchivadasEmpleado() en empresacontroller. Devuelve las sanciones de un empleado.
+-modificacion sinSancionesView para que valga tanto para empleado como para gerente.
+- creado método devolverSancionesEmpleado en Sancion.php
+-Sanciones empleado COMPLETADO.
+-Modificado método loguearCuenta() de EMpresaController, ahora obtiene el logo de la empresa y lo muestra en sidebar. Añadido método obtenerLogo() en EMpresa.
+-Añadido método inicioEmpleado() en EmpresaController.
+- Creada navbar para el empleado.

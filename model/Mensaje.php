@@ -3,17 +3,39 @@
 		class Mensaje extends EntidadBase{
 
 				private $database;
-				private $emisor; //idUsuario emisor
-				private $idConversacion; //generada aleatoriamente
+				private $emisor; // nombre emisor
+				private $idEmisor; //idUsuario con sesion iniciada
 				private $cuerpoMensaje; //texto mensaje
-				private $receptor; //idUsuario receptor
+				private $idReceptor; //idUsuario que lo recibe
+				private $receptor; //nombre receptor
+
 
 				public function __construct(){
 					$table = "mensajes";
 					parent::__construct($table);
 				}
 
+			public function getIdEmisor()
+				{
+				    return $this->idEmisor;
+				}
 				
+				public function setIdEmisor($idEmisor)
+				{
+				    $this->idEmisor = $idEmisor;
+				    return $this;
+				}	
+
+				public function getIdReceptor()
+				{
+				    return $this->idReceptor;
+				}
+				
+				public function setIdReceptor($idReceptor)
+				{
+				    $this->idReceptor = $idReceptor;
+				    return $this;
+				}
 			public function getEmisor()
 			{
 			    return $this->emisor;
@@ -63,10 +85,11 @@
 			
 
 			public function guardarMensajePrivado(){
-				$query = "INSERT INTO mensajes (id,emisor,idConversacion,cuerpoMensaje,receptor) VALUES ('".$this->id."',"
+				$query = "INSERT INTO mensajes (id,emisor,idEmisor,cuerpoMensaje,idReceptor,receptor) VALUES ('".$this->id."',"
 									."'".$this->emisor."',"
-									."'".$this->idConversacion."',"
+									."'".$this->idEmisor."',"
 									."'".$this->cuerpoMensaje."',"
+									."'".$this->idReceptor."',"
 									."'".$this->receptor."'"
 									.")";
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2018 a las 06:54:24
+-- Tiempo de generación: 01-06-2018 a las 19:04:32
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `mensajes` (
   `id` int(255) NOT NULL,
   `emisor` varchar(90) COLLATE utf8_spanish2_ci NOT NULL,
-  `idConversacion` int(10) NOT NULL,
+  `idEmisor` int(150) NOT NULL,
   `cuerpoMensaje` varchar(400) COLLATE utf8_spanish2_ci NOT NULL,
+  `idReceptor` int(150) NOT NULL,
   `receptor` varchar(90) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -38,28 +39,10 @@ CREATE TABLE `mensajes` (
 -- Volcado de datos para la tabla `mensajes`
 --
 
-INSERT INTO `mensajes` (`id`, `emisor`, `idConversacion`, `cuerpoMensaje`, `receptor`) VALUES
-(1, 'David', 444, 'Hola', 'noeliaPrueba'),
-(2, 'David', 444, 'hola', 'noeliaPrueba'),
-(3, 'David', 444, 'hola', 'noeliaPrueba'),
-(4, 'David', 444, 'probando', 'noeliaPrueba'),
-(5, 'David', 444, 'probando', 'noeliaPrueba'),
-(6, 'David', 444, 'probando', 'noeliaPrueba'),
-(7, 'David', 444, 'hola', 'noeliaPrueba'),
-(8, 'David', 444, 'probando', 'noeliaPrueba'),
-(9, 'David', 444, 'hola', 'noeliaPrueba'),
-(10, 'David', 444, 'hola', 'noeliaPrueba'),
-(11, 'David', 444, 'probando', 'noeliaPrueba'),
-(12, 'David', 444, 'ash', 'noeliaPrueba'),
-(13, 'David', 444, '', 'noeliaPrueba'),
-(14, 'David', 444, 'perro', 'noeliaPrueba'),
-(15, 'David', 444, 'afbvhsBFV ', 'noeliaPrueba'),
-(16, 'David', 444, 'Prueba!!', 'noeliaPrueba'),
-(17, 'David', 444, 'prueba', 'noeliaPrueba'),
-(18, 'David', 444, '', 'noeliaPrueba'),
-(19, 'David', 444, 'hola que tal?', 'noeliaPrueba'),
-(20, 'David', 444, 'gg', 'noeliaPrueba'),
-(21, 'David', 444, 'yujuuu funciona', 'noeliaPrueba');
+INSERT INTO `mensajes` (`id`, `emisor`, `idEmisor`, `cuerpoMensaje`, `idReceptor`, `receptor`) VALUES
+(40, 'David', 44899, 'Hola noe', 300, 'noeliaPrueba'),
+(41, 'David', 44899, 'Hola pepe', 302, 'noeliaPrueba'),
+(42, 'David', 300, 'Hola pepe', 302, 'noeliaPrueba');
 
 --
 -- Índices para tablas volcadas
@@ -79,7 +62,7 @@ ALTER TABLE `mensajes`
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

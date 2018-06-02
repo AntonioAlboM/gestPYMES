@@ -17,7 +17,7 @@ include '/../css/inc/navbar.php';
         <div class="row justify-content-around">
             <div class="col-sm-7 contacto rounded">
 
-                <form>
+                <form action="/gestPYMES/plugin/phpmailer/consulta.php" method="POST">
                     <h4 class="h4formulario">Rellene el formulario para recibir información</h4>
                     <div class="form-row">
                         <div class="input-group mb-4 mr-sm-4 col-md-3">
@@ -45,7 +45,7 @@ include '/../css/inc/navbar.php';
                     <div class="form-row">
                         <label  class="col-form-label">Escriba su mensaje:</label>
                         <div class="form-group col-md-10">
-                            <textarea class="form-control all-elements-tooltip" id="exampleFormControlTextarea1" name="mensajecontacto" rows="6" data-toggle="tooltip"  title="Consulta">
+                            <textarea class="form-control all-elements-tooltip" id='summernote' name="mensajecontacto" rows="6" data-toggle="tooltip"  title="Consulta">
                             </textarea>
                         </div></div>
 

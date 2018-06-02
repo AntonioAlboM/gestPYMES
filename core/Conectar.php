@@ -6,7 +6,7 @@
 
 		public function __construct(){
 
-			$db_config = require_once 'config/database.php'; //llamamos al array de database
+			$db_config = include 'config/database.php'; //llamamos al array de database
 			$this->driver = $db_config["driver"];
 			$this->user = $db_config["user"];
 			$this->pass = $db_config["pass"];
