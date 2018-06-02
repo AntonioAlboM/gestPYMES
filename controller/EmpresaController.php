@@ -91,7 +91,9 @@ class EmpresaController extends ControladorBase{
             $gerente = $_POST['gerente'];
             $pass = $_POST['pass'];
             $logo = $_POST['logo'];
-
+            $idEmpleado = $_POST['correoElectronico'];
+            
+            
 
             while ($idEmpresaRepetido == true) {
                 $idEmpresa = mt_rand(1,100000);
@@ -106,11 +108,10 @@ class EmpresaController extends ControladorBase{
                 }
             }
 
-            $empresa->setIdEmpleado($idEmpresa);
             $empresa->setGerente($gerente); //seteo el idUsuario
-            $empresaQueSolicitaRegistrarse = $empresa->getGerente(); //lo recojo
+            $empresaQueSolicitaRegistrarse = $empresa->getIdCorreoElectronico(); //lo recojo
             $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaRegistrarse); //consulto a la base de datos el idUsuario introducido por el usuario
-            
+
 
             if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[0]){
 ?>
@@ -131,8 +132,9 @@ class EmpresaController extends ControladorBase{
                 $empresa->setPass($pass);
                 $empresa->setLogo($logo);
                 $empresa->setIdEmpresa($idRegistroEmpresa);
+                $empresa->setIdCorreoElectronico($idEmpleado);
                 $guardar = $empresa->guardarEmpresa();
-//                $guardarEmpGerente = $empresa->registrarEmpleadoGerente();
+                //                $guardarEmpGerente = $empresa->registrarEmpleadoGerente();
 
                 // muestro la vista de REGISTRO OK
 ?>
@@ -169,19 +171,20 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $numeroEmpleado = $_POST['numeroEmpleado'];
         $numSanciones = 0;
         $fechaAlta = date("d.m.y"); 
+        $idEmpleado = $_POST['correoElectronico'];
 
-        while ($idEmpleadoRepetido == true) {
-                $idEmpleado = mt_rand(1,100000);
-                $empleado->setIdEmpleado($idEmpleado); 
-                $idRegistroEmpleado = $empleado->getIdEmpleado();
-                $idEmpresaBaseDatos = $empleado->comprobarIdEmpleado($idRegistroEmpresa);
+        /*   while ($idEmpleadoRepetido == true) {
+            $idEmpleado = mt_rand(1,100000);
+            $empleado->setIdEmpleado($idEmpleado); 
+            $idRegistroEmpleado = $empleado->getIdEmpleado();
+            $idEmpresaBaseDatos = $empleado->comprobarIdEmpleado($idRegistroEmpresa);
 
-                if($idEmpresaBaseDatos == $idEmpleadoBaseDatos[0]){
-                    $idEmpleadoRepetido = true;
-                }else{
-                    $idEmpleadoRepetido = false;
-                }
+            if($idEmpresaBaseDatos == $idEmpleadoBaseDatos[0]){
+                $idEmpleadoRepetido = true;
+            }else{
+                $idEmpleadoRepetido = false;
             }
+        }*/
         // llamo a los setter de la instancia y les paso las variables del formulario
         $empleado->setIdEmpleado($idEmpleado);
         $empleado->setNombre($nombreEmpleado);
@@ -222,7 +225,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $this->view("loguearCuenta", array());
     }
 
-// metodo modificado 02/06/2018 por Antonio.
+    // metodo modificado 02/06/2018 por Antonio.
 
     public function loguearCuenta(){
         $rol = $_POST['empresa']; //capturo el rol del radio
@@ -234,11 +237,11 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             $pass = $_POST['clave-login'];
 
 
-            $empresa->setGerente($usuario); //seteo el idUsuario
-            $empresaQueSolicitaLoguearse = $empresa->getGerente(); //lo recojo
-            $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaLoguearse); //consulto a la base de datos el idUsuario introducido por el usuario
+            $empresa->setIdCorreoElectronico($usuario); //seteo el idUsuario
+            $empresaQueSolicitaLoguearse = $empresa->getIdCorreoElectronico(); //lo recojo
+            $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaLoguearse);
 
-            if($empresaQueSolicitaLoguearse == $empresaEnBaseDeDatos[0] && $pass == $empresaEnBaseDeDatos[1]){
+            if($empresaQueSolicitaLoguearse == $empresaEnBaseDeDatos[3] && $pass == $empresaEnBaseDeDatos[1]){
 
 
                 $_SESSION['gerente'] = $empresaEnBaseDeDatos[0]; //guardo el usuario
@@ -259,28 +262,30 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             }
         }
 
-        if($rol == "Empleado"){
+        elseif($rol == "Empleado"){
             $empleado = new Empleado();
 
             $usuario = $_POST['nombre-login']; //es el correo electronico
             $pass = $_POST['clave-login'];
 
 
-            $empleado->setNombre($usuario); //seteo el idUsuario
-            $empleadoQueSolicitaLoguearse = $empleado->getNombre(); //lo recojo
+            $empleado->setIdCorreoElectronico($usuario); //seteo el idUsuario
+            $empleadoQueSolicitaLoguearse = $empleado->getIdCorreoElectronico(); //lo recojo
             $empleadoEnBaseDeDatos = $empleado->loguearEmpleado($empleadoQueSolicitaLoguearse); //consulto a la base de datos el idUsuario introducido por el usuario
 
-            if($empleadoQueSolicitaLoguearse == $empleadoEnBaseDeDatos[0] && $pass == $empleadoEnBaseDeDatos[1]){
+              if($empleadoQueSolicitaLoguearse == $empleadoEnBaseDeDatos[2] && $pass == $empleadoEnBaseDeDatos[1]){
 
 
                 $_SESSION['nombreEmpleado'] = $empleadoEnBaseDeDatos[0]; //guardo el usuario
                 $_SESSION['passEmpleado'] = $empleadoEnBaseDeDatos[1]; //guardo el pass
-                $_SESSION['id'] = $empleadoEnBaseDeDatos[2]; //guardo idEmpleado
+                $_SESSION['correoElectronico'] = $empleadoEnBaseDeDatos[2]; //guardo correo
                 $_SESSION['apellidosEmpleado'] = $empleadoEnBaseDeDatos[3]; //guardo logo
                 $_SESSION['idEmpresa'] = $empleadoEnBaseDeDatos[4]; //guardo idEmpresa
+                $_SESSION['id'] = $empleadoEnBaseDeDatos[5]; // guardo el id del empleado
                 $empresa = new Empresa();
                 $logo = $empresa->obtenerLogo( $_SESSION['idEmpresa']); 
                 $_SESSION['logo'] = $logo;
+                
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
@@ -315,10 +320,10 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     public function irAchatPrivado(){
         // cargamos la vista del formulario de registro de empresa view/crearEmpresaView.php
 
- $empleado = new Empleado();
+        $empleado = new Empleado();
         //$_SESSION["destinatario"] = $_POST['destinatario'];
         $_SESSION["idDestinatario"] = $_POST['destinatario'];
-       
+
         $Receptor = $empleado->getDatosEmpleado($_SESSION["idDestinatario"]);
         $nombreReceptor = $Receptor->nombre;
         $_SESSION['nombreDestinatario'] = $nombreReceptor;
@@ -441,6 +446,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $cpEmpleado = $_POST['cpEmpleado'];
         $numeroEmpleado = $_POST['numeroEmpleado'];
         $idEmpleado = $_POST['id'];
+         
 
 
 
@@ -555,9 +561,9 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $idEmpresa = $_SESSION['idEmpresa'];
         $sancionar = new Sancion();
         $sanciones = $sancionar->devolverSanciones($idEmpresa);
-         if($sanciones){   
-             
-             $this->view("sancionesArchivadas", array(
+        if($sanciones){   
+
+            $this->view("sancionesArchivadas", array(
                 "sanciones" => $sanciones
             ));
         }else{
@@ -566,14 +572,14 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         }
 
     }
-    
+
     public function sancionesArchivadasEmpleado(){
         $id = $_SESSION['id'];
         $sancionar = new Sancion();
         $sanciones = $sancionar->devolverSancionesEmpleado($id);
-         if($sanciones){   
-             
-             $this->view("sancionesArchivadasEmpleado", array(
+        if($sanciones){   
+
+            $this->view("sancionesArchivadasEmpleado", array(
                 "sanciones" => $sanciones
             ));
         }else{
@@ -582,7 +588,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         }
     }
 
-    
+
     public function inicioEmpleado(){
         if (isset ($_SESSION['nombreEmpleado'])){
             $this->view("logueoEmpleado", array());
@@ -590,7 +596,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             $this->view("index", array());
         }
     }
-    
+
     public function salir(){
         session_destroy();
         $this->view("index",array());

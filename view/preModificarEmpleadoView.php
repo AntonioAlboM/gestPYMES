@@ -21,7 +21,7 @@ if (isset($_SESSION['gerente'])){
     $fecha = date("d/m/Y", strtotime($fechaTabla));
     $dni = $datosEmpleado->dni;
     $numero = $datosEmpleado->numero;
-    $id = $datosEmpleado->id;
+    $correo = $datosEmpleado->correoElectronico;
 ?>
 
 
@@ -140,6 +140,16 @@ if (isset($_SESSION['gerente'])){
                                     <div class="input-group-text"><i class="fas fa-address-book"></i></div>
                                 </div>
                                 <input class="form-control all-elements-tooltip" type="number"  required name="cpEmpleado" value="<?php echo $cp; ?>" placeholder ="<?php echo $cp; ?>"  title="cp">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-row ">
+                        <div class="col-md-3">
+                            <div class="input-group mb-4 ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                </div>
+                                <input class="form-control all-elements-tooltip" type="text"  required name="correoElectronico" placeholder="<?php echo $correo; ?>" value="<?php echo $correo; ?>" readonly title="correo">
                             </div>
                         </div>
                     </div>

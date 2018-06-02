@@ -18,7 +18,16 @@ class Empresa extends EntidadBase{
         parent::__construct($table);
     }
 
+    public function getIdCorreoElectronico()
+    {
+        return $this->idCorreoElectronico;
+    }
     
+    public function setIdCorreoElectronico($idCorreoElectronico)
+    {
+        $this->idCorreoElectronico = $idCorreoElectronico;
+        return $this;
+    }
 
     public function getFechaCreacion()
     {
@@ -135,18 +144,18 @@ class Empresa extends EntidadBase{
 
 
 
-        $query = "INSERT INTO empresas (fechaCreacion,tipoEmpresa,capitalSocial,sector,gerente,pass,logo,idEmpresa,idEmpleado)". " VALUES('".$this->fechaCreacion."',"
+          $query = "INSERT INTO empresas (fechaCreacion,tipoEmpresa,capitalSocial,sector,correoElectronico,gerente,pass,logo,idEmpresa)". " VALUES('".$this->fechaCreacion."',"
             ."'".$this->tipoEmpresa."',"
             ."'".$this->capitalSocial."',"
             ."'".$this->sector."',"
+            ."'".$this->correoElectronico."',"
             ."'".$this->gerente."',"
             ."'".$this->pass."',"
             ."'".$this->logo."',"
-            ."'".$this->idEmpresa."',"
-            ."'".$this->idEmpleado."'"
+            ."'".$this->idEmpresa."'"
             .")";
 
-        $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
+        $guardar = $this->db()->prepare($query); //metodo db heredado de EntidadBase,le pasamos la query
         $guardarEmp = $guardar->execute();
         return $guardarEmp;
 
@@ -156,7 +165,7 @@ class Empresa extends EntidadBase{
 
 
 
-        $query = "INSERT INTO empleados (idEmpleado,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->idEmpleado."',"
+        $query = "INSERT INTO empleados (correoElectronico,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->correoElectronico."',"
             ."'".$this->nombre."',"
             ."'".$this->apellidos."',"
             ."'".$this->dni."',"
@@ -180,10 +189,10 @@ class Empresa extends EntidadBase{
         return $guardarEmpleado;
 
     }
-
-    public function loguearEmpresa($gerente)
+    
+    public function loguearEmpresa($correoElectronico)
     {
-        $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa,idEmpleado, logo FROM empresas WHERE gerente = '" . $gerente . "'");
+   $consulta = $this->db()->prepare("SELECT gerente,pass,idEmpresa,correoElectronico, logo FROM empresas WHERE correoElectronico = '" . $correoElectronico . "'");
         $consulta->execute();
 
 
@@ -191,7 +200,7 @@ class Empresa extends EntidadBase{
             $cuenta[] = $fila[0]; //gerente
             $cuenta[] = $fila[1]; //pass
             $cuenta[] = $fila[2]; //idEmpresa
-            $cuenta[] = $fila[3]; //idEmpleado
+            $cuenta[] = $fila[3]; //correoElectronico
             $cuenta[] = $fila[4];//logo
         }
 

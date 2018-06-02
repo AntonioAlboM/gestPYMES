@@ -125,6 +125,16 @@ if (isset($_SESSION['gerente'])){
                             </div>
                         </div>
                     </div>
+                    <div class="form-row ">
+                        <div class="col-md-3">
+                            <div class="input-group mb-4 ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                </div>
+                                <input class="form-control all-elements-tooltip" type="text"  required name="correoElectronico" placeholder="Correo Electrónico" title="correo">
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-row ">  
                         <div class="col offset-md-9 ">

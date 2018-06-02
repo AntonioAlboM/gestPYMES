@@ -3,7 +3,7 @@
 class Empleado extends EntidadBase{
 
     private $database;
-    private $idEmpleado; 
+    private $correoElectronico;  
     private $nombre;
     private $apellidos;
     private $dni;
@@ -27,16 +27,17 @@ class Empleado extends EntidadBase{
         parent::__construct($table);
     }
 
-    public function getIdEmpleado()
+     public function getIdCorreoElectronico()
     {
-        return $this->idEmpleado;
+        return $this->idCorreoElectronico;
     }
-
-    public function setIdEmpleado($idEmpleado)
+    
+    public function setIdCorreoElectronico($idCorreoElectronico)
     {
-        $this->idEmpleado = $idEmpleado;
+        $this->idCorreoElectronico = $idCorreoElectronico;
         return $this;
     }
+
 
     public function getNombre()
     {
@@ -216,7 +217,7 @@ class Empleado extends EntidadBase{
 
     public function registrarEmpleado(){
 
-        $query = "INSERT INTO empleados (idEmpleado,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->idEmpleado."',"
+       $query = "INSERT INTO empleados (correoElectronico,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->correoElectronico."',"
             ."'".$this->nombre."',"
             ."'".$this->apellidos."',"
             ."'".$this->dni."',"
@@ -240,7 +241,7 @@ class Empleado extends EntidadBase{
 
     }
 
-    
+
 
     public function sancionarEmpleado($nombre){
         //UPDATE `empleados` SET `numSanciones` =
@@ -263,18 +264,19 @@ class Empleado extends EntidadBase{
     }
 
 
-    public function loguearEmpleado($empleado)
+   public function loguearEmpleado($correoElectronico)
     {
-        $consulta = $this->db()->prepare("SELECT nombre, pass,id,apellidos, idempresa FROM empleados WHERE nombre = '" . $empleado . "'");
+        $consulta = $this->db()->prepare("SELECT nombre, pass ,correoElectronico, apellidos, idEmpresa, id FROM empleados WHERE correoElectronico = '" . $correoElectronico . "'");
         $consulta->execute();
 
 
         while ($fila = $consulta->fetch()) {
             $cuenta[] = $fila[0]; //nombre
             $cuenta[] = $fila[1]; //pass
-            $cuenta[] = $fila[2]; //idEmpleado
+            $cuenta[] = $fila[2]; //correoElectronico
             $cuenta[] = $fila[3]; //apellidos
             $cuenta[] = $fila[4]; //idEmpresa
+            $cuenta[] = $fila[5]; //id
         }
 
         return $cuenta;
@@ -282,14 +284,16 @@ class Empleado extends EntidadBase{
     }
     
     
-    
-    
-    
+
+
+
+
+
     //  Métodos creados por Antonio
-    
+
     public function modificarEmpleado(){
 
-        
+
         $resultado = $this->db()->exec("UPDATE empleados SET 
         pass= '$this->pass', 
         localidad = '$this->localidad',
@@ -305,7 +309,7 @@ class Empleado extends EntidadBase{
     }
 
 
-public function comprobarIdEmpleado($idEmpleado)
+    public function comprobarIdEmpleado($idEmpleado)
     {
         $consulta = $this->db()->prepare("SELECT idEmpresa FROM empleados WHERE idEmpleado = '" . $idEmpleado . "'");
         $consulta->execute();

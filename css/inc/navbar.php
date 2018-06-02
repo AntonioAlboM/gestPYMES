@@ -89,7 +89,7 @@
                             <form action="<?php echo $helper->url('Empresa','loguearCuenta'); ?>" id="log" method="POST">
 
                                 <div class="form-group">
-                                    <label><span class="oi oi-person"></span>&nbsp;Nombre de usuario</label>
+                                    <label><span class="oi oi-person"></span>&nbsp;Correo Electrónico</label>
                                     <input type="text" class="form-control" name="nombre-login" placeholder="Escribe tu usuario" required=""/>
                                 </div>
                                 <div class="form-group">

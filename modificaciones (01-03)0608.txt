@@ -29,3 +29,17 @@ Modificaciones durante el fin de semana del 1 al 3 de junio.
 -Modificado método loguearCuenta() de EMpresaController, ahora obtiene el logo de la empresa y lo muestra en sidebar. Añadido método obtenerLogo() en EMpresa.
 -Añadido método inicioEmpleado() en EmpresaController.
 - Creada navbar para el empleado.
+- Fusión de archivos modificados por David(creación correo)
+- Cambiado usuario por correo en el login
+- Añadido correo electronico a las vistas de crear empleado y modificar empleado.
+
+
+
+
+
+
+
+
+Pendiente----------------------------------
+
+En el método de crear empresa, llamar a empleado y meter en la tabla al gerente: correo, pass, idEmpresa.
