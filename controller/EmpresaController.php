@@ -108,18 +108,14 @@ class EmpresaController extends ControladorBase{
                 }
             }
 
-            $empresa->setGerente($gerente); //seteo el idUsuario
+            $empresa->setIdCorreoElectronico($idEmpleado); //seteo el idUsuario
             $empresaQueSolicitaRegistrarse = $empresa->getIdCorreoElectronico(); //lo recojo
             $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaRegistrarse); //consulto a la base de datos el idUsuario introducido por el usuario
 
 
-            if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[0]){
-?>
-<script type="text/javascript">
-    alert("La empresa que intentas registrar ya existe")
-</script>
-<?php  
-                $this->view("crearEmpresa", array(
+            if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[3]){
+
+                $this->view("repetido", array(
                 ));
             }else{
 

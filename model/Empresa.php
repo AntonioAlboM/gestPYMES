@@ -13,6 +13,7 @@ class Empresa extends EntidadBase{
     private $logo;
     private $id; //A.I
     private $idCorreoElectronico;
+   
 
     public function __construct(){
         $table = "empresas";

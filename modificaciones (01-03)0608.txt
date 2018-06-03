@@ -38,7 +38,8 @@ Modificaciones durante el fin de semana del 1 al 3 de junio.
 
 -Corregido problema login. Cambiado nombre de variable de correo electronico en EMPLEAdo
 - Interfaz de chat para empleados.
-
+-Corregido error que siempre mostraba empresa repetida al intentar registrar una nueva
+- Creación vista en caso de intentar registrar empresa repetida
 
 
 
