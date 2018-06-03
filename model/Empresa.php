@@ -12,6 +12,7 @@ class Empresa extends EntidadBase{
     private $pass;
     private $logo;
     private $id; //A.I
+    private $idCorreoElectronico;
 
     public function __construct(){
         $table = "empresas";
@@ -148,7 +149,7 @@ class Empresa extends EntidadBase{
             ."'".$this->tipoEmpresa."',"
             ."'".$this->capitalSocial."',"
             ."'".$this->sector."',"
-            ."'".$this->correoElectronico."',"
+            ."'".$this->idCorreoElectronico."',"
             ."'".$this->gerente."',"
             ."'".$this->pass."',"
             ."'".$this->logo."',"

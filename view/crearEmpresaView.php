@@ -71,6 +71,14 @@ include 'css/inc/navbar.php';
                                 <div class="form-row ">
                                     <div class="input-group mb-4 mr-sm-4 col-md-12">
                                         <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                        </div>
+                                        <input class="form-control all-elements-tooltip" type="text" placeholder="e-mail" required name="correoElectronico" data-toggle="tooltip"  title="Correo Electrónico" >
+                                    </div>
+                                </div>
+                                <div class="form-row ">
+                                    <div class="input-group mb-4 mr-sm-4 col-md-12">
+                                        <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-key"></i></div>
                                         </div>
                                         <input class="form-control all-elements-tooltip" type="password" placeholder="Contraseña" required name="pass" data-toggle="tooltip"  title="Contraseña" >

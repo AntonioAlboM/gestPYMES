@@ -3,9 +3,12 @@ session_start();
 if (isset($_SESSION['gerente'])){
     include 'css/inc/navbarGerente.php';
     include'css/inc/prueba.php';
+}else if(isset($_SESSION['nombreEmpleado'])){
+include 'css/inc/navbarEmpleado.php';
+    include'css/inc/sidebarEmpleado.php';
+
 }
 ?>
-
 
 <section class="crearEmpleado">
     <div class="container">

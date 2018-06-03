@@ -186,7 +186,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             }
         }*/
         // llamo a los setter de la instancia y les paso las variables del formulario
-        $empleado->setIdEmpleado($idEmpleado);
+        $empleado->setIdCorreoElectronico($idEmpleado);
         $empleado->setNombre($nombreEmpleado);
         $empleado->setApellidos($apellidoEmpleado);
         $empleado->setDni($dniEmpleado);

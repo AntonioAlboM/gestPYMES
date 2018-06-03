@@ -31,9 +31,13 @@ Modificaciones durante el fin de semana del 1 al 3 de junio.
 - Creada navbar para el empleado.
 - Fusión de archivos modificados por David(creación correo)
 - Cambiado usuario por correo en el login
-- Añadido correo electronico a las vistas de crear empleado y modificar empleado.
+- Añadido correo electronico a las vistas de crear empleado, modificar empleado y registrar emprsa.
 
 
+
+
+-Corregido problema login. Cambiado nombre de variable de correo electronico en EMPLEAdo
+- Interfaz de chat para empleados.
 
 
 

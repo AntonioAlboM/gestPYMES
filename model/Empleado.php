@@ -29,12 +29,12 @@ class Empleado extends EntidadBase{
 
      public function getIdCorreoElectronico()
     {
-        return $this->idCorreoElectronico;
+        return $this->correoElectronico;
     }
     
-    public function setIdCorreoElectronico($idCorreoElectronico)
+    public function setIdCorreoElectronico($correoElectronico)
     {
-        $this->idCorreoElectronico = $idCorreoElectronico;
+        $this->correoElectronico = $correoElectronico;
         return $this;
     }
 
