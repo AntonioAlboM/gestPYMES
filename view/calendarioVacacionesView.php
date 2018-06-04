@@ -5,12 +5,12 @@ if (isset($_SESSION['gerente'])){
     include'css/inc/prueba.php';
 }
 ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+<link rel="stylesheet" href="css/fullcalendar/fullcalendar.css" />
+<script src="css/fullCalendar/lib/jquery.min.js"></script>
+<script src="css/fullCalendar/lib/jquery-ui.min.js"></script>
+<script src="css/fullCalendar/lib/moment.min.js"></script>
+<script src="css/fullcalendar/fullcalendar.min.js"></script>
+<script src="css/fullcalendar/locale/es.js"></script>
 <script>
 
     $(document).ready(function() {
@@ -31,7 +31,7 @@ if (isset($_SESSION['gerente'])){
                 var title = prompt("Introduzca el empleado que disfrutará de éste dia");
                 if(title)
                 {
-                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+                    var start = $.fullCalendar.formatDate(start, "D-MM-DD HH:mm:ss");
                     var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
                     $.ajax({
                         url:"../gestPYMES/view/insert.php",
@@ -83,7 +83,7 @@ if (isset($_SESSION['gerente'])){
 
             eventClick:function(event)
             {
-                if(confirm("¿Seguro que quieres eliminar el dia libre?"))
+                if(confirm("¿Seguro que quieres eliminar el dia libre a " +event.title+"?"))
                 {
                     var id = event.id;
                     $.ajax({
