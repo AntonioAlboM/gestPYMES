@@ -14,7 +14,7 @@ include 'css/inc/navbarEmpleado.php';
 <div  class="container  enviarComunicado ">
     <div class="row justify-content-center">
         <div>
-            <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-envelope"></i>&nbsp;No existe ninguna sanción  archivada</h4>
+            <h4 class="h4 text-center tituloComunicado title justify-content-md-center"><i class="fas fa-envelope"></i>&nbsp;No existe ninguna sanción  archivada</h4>
         </div>
 
         

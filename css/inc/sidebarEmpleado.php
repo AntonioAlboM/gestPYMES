@@ -6,10 +6,10 @@
     <nav id="sidebar" class="bg-dark ">
 
         <div class="sidebar-header">
-            <img class="img-fluid rounded float-right" src="<?php echo $_SESSION['logo'];?>" alt="">
+            <img class="img-fluid rounded imagenSidebar float-right" src="<?php echo $_SESSION['logo'];?>" alt="">
         </div>
         <ul class="list-unstyled components ml-auto">
-            <p class="gerente"><?php echo $_SESSION['nombreEmpleado'] ; ?></p>
+            <p class="gerente"> <?php echo $_SESSION['nombreEmpleado'] ; ?></p>
             <li class="">
                 <a href="<?php echo "index.php?controller=Empresa&action=inicioEmpleado"; ?>" class="btn btn-dark btn-md btn-block" >Inicio</a>
 

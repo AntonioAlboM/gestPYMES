@@ -5,7 +5,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar" class="bg-dark ">
         <div class="sidebar-header">
-            <img class="img-fluid rounded float-right" src="<?php echo $_SESSION['logo'];?>" alt="">
+            <img class="img-fluid rounded imagenSidebarfloat-right" src="<?php echo $_SESSION['logo'];?>" alt="">
         </div>
 
         <ul class="list-unstyled components ml-auto">

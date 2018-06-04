@@ -7,8 +7,8 @@ include 'css/inc/navbar.php';
         <!-- Heading Row -->
 
         <div class="row titulo justify-content-center">
-            <div class="col-md-5">
-                <h4>Nuestros servicios para su empresa</h4>
+            <div class="col-md-6">
+                <h4 class="title">Nuestros servicios para su empresa</h4>
             </div>
 
         </div></div></section>
@@ -18,7 +18,7 @@ include 'css/inc/navbar.php';
         <div class="row servicio justify-content-between">
 
             <div class="col-md-6 align-self-center ">
-                <h3>Organización</h3>
+                <h3 class="title">Organización</h3>
                 <p>Ahora, gracias a gestPYMEs es muy sencillo mantener organizados a los empleados de su empresa, dispondrá de todos sus datos en un panel de control</p>
 
             </div>
@@ -37,7 +37,7 @@ include 'css/inc/navbar.php';
                 
             </div>
             <div class="col-md-6 align-self-center ">
-                <h3>Comunicación</h3>
+                <h3 class="title">Comunicación</h3>
                 <p>Comunicarse con sus empleados nunca fue tan fácil como con gestPYMEs, manténgalos informados y reciba sus notificaciones </p>
 
             </div>
@@ -45,7 +45,7 @@ include 'css/inc/navbar.php';
         <div class="row servicio  justify-content-between">
 
             <div class="col-md-6 align-self-center ">
-                <h3>Gestión</h3>
+                <h3 class="title">Gestión</h3>
                 <p>Con nuestro calendario podrá gestionar las vacaciones, permisos y sanciones de sus trabajadores de la manera más cómoda.</p>
 
             </div>

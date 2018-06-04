@@ -8,9 +8,9 @@ if (isset($_SESSION['gerente'])){
 
 <div  class="container  comunicadosArchivados ">
     <div class="row justify-content-center">
-        <div class="col col-md-8 offset-4">
+        <div class="col col-md-12 ">
             <div>
-                <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-paste"></i>&nbsp;Sanciones</h4>
+                <h4 class="h4 tituloComunicado text-center justify-content-md-center"><i class="fas fa-paste"></i>&nbsp;Sanciones</h4>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@ if (isset($_SESSION['gerente'])){
                         ?>
                         <div id="accordion">
                             <div class="card">
-                                <div class="card-header bg-dark text-white" id="headingOne">
+                                <div class="card-header title bg-dark text-white" id="headingOne">
                                     <h5 class="mb-0">
                                         <div class="" data-toggle="collapse" data-target="#<?php echo "$sancion->idEmpleado";?>" aria-expanded="true" aria-controls="collapse">
                                             <div class="row justify-content-between">
@@ -51,7 +51,7 @@ if (isset($_SESSION['gerente'])){
                                     <div class="card-body">
                                         <?php } ?>
 
-                                        <div class="fechaSancion"> <?php echo $sancion->fecha;?></div>
+                                        <div class="fechaSancion title"> <?php echo $sancion->fecha;?></div>
 
                                         <div><?php echo $sancion->sancion;?></div>
 

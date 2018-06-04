@@ -10,7 +10,7 @@ if (isset($_SESSION['gerente'])){
 <div  class="container  enviarComunicado ">
     <div class="row justify-content-center">
         <div>
-            <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-envelope"></i>&nbsp;No existe ningún comunicado archivado </h4>
+            <h4 class="h4 tituloComunicado title text-center justify-content-md-center"><i class="fas fa-envelope"></i>&nbsp;No existe ningún comunicado archivado </h4>
         </div>
 
         

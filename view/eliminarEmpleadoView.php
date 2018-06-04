@@ -9,7 +9,7 @@ if (isset($_SESSION['gerente'])){
     <div class="container">
         <div class="row justify-content-center">
             <div class="col mb-12 ">
-                <h4 class="d-flex justify-content-center h4 tituloRegistroEmpleado "><i class="fas fa-trash-alt"></i>&nbsp;Escoja el empleado que desea despedir</h4>
+                <h4 class="d-flex justify-content-center text-center h4 title tituloRegistroEmpleado "><i class="fas fa-trash-alt"></i>&nbsp;Escoja el empleado que desea despedir</h4>
             </div>
         </div>
         <!--            <div class="form-row justify-content-center">-->
@@ -21,9 +21,9 @@ if (isset($_SESSION['gerente'])){
                     <div class="input-group mb-12 ">
 
                         <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Selección</th>
+                            <th class="title">Nombre</th>
+                            <th class="title">Apellidos</th>
+                            <th class="title">Selección</th>
                             <?php 
 
                             foreach ($empleados as $emp) {

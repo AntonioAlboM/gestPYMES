@@ -14,7 +14,7 @@ include 'css/inc/navbarEmpleado.php';
     <div class="container">
         <div class="col-md-12 rounded">
             <div class="row justify-content-center">
-                <h4 class="h4 tituloRegistroEmpleado"><i class="fas fa-comments"></i>&nbsp; Elija un empleado para comenzar el Chat</h4>
+                <h4 class="h4 title tituloRegistroEmpleado text-center"><i class="fas fa-comments"></i>&nbsp; Elija un empleado para comenzar el Chat</h4>
             </div>
             <div class="form-row justify-content-center">
                 <form action="<?php echo $helper->url('Empresa','irAchatPrivado'); ?>" method="POST">
@@ -23,9 +23,9 @@ include 'css/inc/navbarEmpleado.php';
                             <div class="input-group mb-12 ">
                             
                             <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Selección</th>
+                                <th class="title">Nombre</th>
+                                <th class="title">Apellidos</th>
+                                <th class="title">Selección</th>
                                 <?php 
 
                                 foreach ($EmpleadosEmpresa as $emp) {

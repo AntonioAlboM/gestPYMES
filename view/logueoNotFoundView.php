@@ -9,9 +9,9 @@ include '/../css/inc/navbar.php';
 
         <!-- Heading Row -->
 
-        <div class="row titulo ">
+        <div class="row titulo tile text-center ">
             <div class="col-md-4 offset-4">
-                <h2>Usuario no encontrado</h2>
+                <h2>Usuario o contraseña incorrectos</h2>
 
                 <div class="row justify-content-md-center">
 

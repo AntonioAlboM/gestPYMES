@@ -12,9 +12,9 @@ include 'css/inc/navbarEmpleado.php';
 
 <div  class="container  comunicadosArchivados ">
     <div class="row justify-content-center">
-        <div class="col col-md-8 offset-4">
+        <div class="col col-md-12">
             <div>
-                <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-paste"></i>&nbsp;Comunicados Anteriores</h4>
+                <h4 class="h4 title tituloComunicado  text-center"><i class="fas fa-paste"></i>&nbsp;Comunicados Anteriores</h4>
             </div>
         </div>
     </div>
@@ -39,8 +39,8 @@ include 'css/inc/navbarEmpleado.php';
                                     <h5 class="mb-0">
                                         <div class=""data-toggle="collapse" data-target="#<?php echo $id;?>" aria-expanded="true" aria-controls="collapse">
                                             <div class="row justify-content-between">
-                                            <div class="col-md-6">
-                                                <?php echo "$titulo";?>
+                                            <div class=" title col-md-6">
+                                                <?php  echo "$titulo";?>
                                             </div>
                                             <div class="col-md-3">
                                                 <?php echo "$fecha";?>

@@ -11,7 +11,7 @@
     </head>
 
     <body>
-        <header>
+        <header class="navbar">
             <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

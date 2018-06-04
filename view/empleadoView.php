@@ -8,7 +8,7 @@ include '/../css/inc/navbar.php';
 
         <div class="row titulo justify-content-center">
             <div class="col-md-5">
-                <h4>Nuestros servicios para sus empleados</h4>
+                <h4 class="title">Nuestros servicios para sus empleados</h4>
             </div>
 
         </div></div></section>
@@ -18,8 +18,8 @@ include '/../css/inc/navbar.php';
         <div class="row servicio justify-content-between">
 
             <div class="col-md-6 align-self-center ">
-                <h3>Organización</h3>
-                <p>Ahora, gracias a gestPYMEs es muy sencillo mantener organizados a los empleados de su empresa, dispondrá de todos sus datos en un panel de control</p>
+                <h3 class="title">Organización</h3>
+                <p>Ahora, gracias a <span class="logo2">gestPYMEs</span> es muy sencillo mantener organizados a los empleados de su empresa, dispondrá de todos sus datos en un panel de control</p>
 
             </div>
             <div class="col-md-6 align-self-right">
@@ -37,7 +37,7 @@ include '/../css/inc/navbar.php';
                 
             </div>
             <div class="col-md-6 align-self-center ">
-                <h3>Información</h3>
+                <h3 class="title">Información</h3>
                 <p>Recibirán toda la información necesaria para realizar su trabajo en su buzón, será notificado de acontecimientos importantes y de todas las novedades en la empresa</p>
 
             </div>
@@ -45,7 +45,7 @@ include '/../css/inc/navbar.php';
         <div class="row servicio  justify-content-between">
 
             <div class="col-md-6 align-self-center ">
-                <h3>Gestión</h3>
+                <h3 class="title">Gestión</h3>
                 <p>Solicite sus vacaciones y permisos desde nuestra aplicación.</p>
 
             </div>

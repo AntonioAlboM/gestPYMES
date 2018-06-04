@@ -38,9 +38,11 @@ Modificaciones durante el fin de semana del 1 al 3 de junio.
 
 -Corregido problema login. Cambiado nombre de variable de correo electronico en EMPLEAdo
 - Interfaz de chat para empleados.
--Corregido error que siempre mostraba empresa repetida al intentar registrar una nueva
+-Corregido error que siempre mostraba empresa repetida al intentar registrar una nueva 
 - Creación vista en caso de intentar registrar empresa repetida
-
+- Creación vista empresa registrada con éxito
+- Corregidas todas las vistas, ahora centran los títulos correctamente
+- Cambiadas las fuentes.
 
 
 
@@ -48,3 +50,5 @@ Modificaciones durante el fin de semana del 1 al 3 de junio.
 Pendiente----------------------------------
 
 En el método de crear empresa, llamar a empleado y meter en la tabla al gerente: correo, pass, idEmpresa.
+
+ERROR 

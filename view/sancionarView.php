@@ -12,7 +12,7 @@ if (isset($_SESSION['gerente'])){
 <div class="container sancionarEmpleado">
     <div class="row justify-content-center">
         <div>
-            <h4 class="h4 tituloRegistroEmpleado justify-content-md-center"><i class="fas fa-comments"></i>&nbsp; Elija un empleado para Sancionar </h4>
+            <h4 class="h4 tituloRegistroEmpleado text-center title justify-content-md-center"><i class="fas fa-comments"></i>&nbsp; Elija un empleado para Sancionar </h4>
         </div>
         <div class="fom-row justify-content-center">
             <div class="col-10 offset-1">
@@ -23,9 +23,9 @@ if (isset($_SESSION['gerente'])){
                         <div class="input-group mb-4 ">
 
                             <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Selección</th>
+                                <th class="title">Nombre</th>
+                                <th class="title">Apellidos</th>
+                                <th class="title">Selección</th>
                                 <?php 
 
                                 foreach ($allEmpleados as $emp) {
@@ -34,7 +34,7 @@ if (isset($_SESSION['gerente'])){
                                     $idEmpleado = $emp->id;
                                 ?>
                                 <tr>
-                                    <td scope="row"><?php echo $nombre; ?></td>
+                                    <td scope="row "><?php echo $nombre; ?></td>
                                     <td><?php echo $apellido ;?></td>
                                     <td ><input type="radio" name="destinatario" value="<?php echo $idEmpleado; ?>"></td>
                                 </tr> 

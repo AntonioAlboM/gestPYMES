@@ -3,9 +3,9 @@
         <div class="row align-items-center">
             <div class="col-6">
                 <ul class="list-group">
-                    <li class="fas fa-map-marker">&nbsp;dirección</li>
-                    <li class="fas fa-phone">&nbsp;912-34-56-78</li>
-                    <li class="fas fa-at">&nbsp;correro@correo.es</li>
+                    <li class="fas fa-map-marker"><span class="title">&nbsp;dirección</span></li>
+                    <li class="fas fa-phone e"><span class="title">&nbsp;912-34-56-78</span></li>
+                    <li class="fas fa-at ">&nbsp;<span class="title">correo@correo.es</span></li>
                 </ul>
             </div>
 

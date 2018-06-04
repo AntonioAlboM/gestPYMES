@@ -92,8 +92,8 @@ class EmpresaController extends ControladorBase{
             $pass = $_POST['pass'];
             $logo = $_POST['logo'];
             $idEmpleado = $_POST['correoElectronico'];
-            
-            
+
+
 
             while ($idEmpresaRepetido == true) {
                 $idEmpresa = mt_rand(1,100000);
@@ -140,7 +140,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 </script>
 -->
 <?php 
-                $this->view("index", array(
+                $this->view("registroExito", array(
                 ));
             }
         }
@@ -269,7 +269,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             $empleadoQueSolicitaLoguearse = $empleado->getIdCorreoElectronico(); //lo recojo
             $empleadoEnBaseDeDatos = $empleado->loguearEmpleado($empleadoQueSolicitaLoguearse); //consulto a la base de datos el idUsuario introducido por el usuario
 
-              if($empleadoQueSolicitaLoguearse == $empleadoEnBaseDeDatos[2] && $pass == $empleadoEnBaseDeDatos[1]){
+            if($empleadoQueSolicitaLoguearse == $empleadoEnBaseDeDatos[2] && $pass == $empleadoEnBaseDeDatos[1]){
 
 
                 $_SESSION['nombreEmpleado'] = $empleadoEnBaseDeDatos[0]; //guardo el usuario
@@ -277,11 +277,12 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $_SESSION['correoElectronico'] = $empleadoEnBaseDeDatos[2]; //guardo correo
                 $_SESSION['apellidosEmpleado'] = $empleadoEnBaseDeDatos[3]; //guardo logo
                 $_SESSION['idEmpresa'] = $empleadoEnBaseDeDatos[4]; //guardo idEmpresa
-                $_SESSION['id'] = $empleadoEnBaseDeDatos[5]; // guardo el id del empleado
+                $_SESSION['idEmpleado'] = $empleadoEnBaseDeDatos[5];
+                $_SESSION['id']= $empleadoEnBaseDeDatos[5];// guardo el id del empleado
                 $empresa = new Empresa();
                 $logo = $empresa->obtenerLogo( $_SESSION['idEmpresa']); 
                 $_SESSION['logo'] = $logo;
-                
+
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
@@ -338,10 +339,18 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
         // variables que quiero
         $cuerpoMensaje = $_POST['mensaje'];
-        $receptor = $_SESSION['destinatario'];
-        $emisor =  $_SESSION['gerente'];
-        $idEmisor = $_SESSION['idEmpleado'];
+        $receptor = $_SESSION['nombreDestinatario'];
 
+        if(isset($_SESSION['gerente'])){
+            $emisor =  $_SESSION['gerente'];
+            $idEmisor = $_SESSION['idEmpresa'];    
+            $_SESSION['idEmisor'] = $idEmisor;
+        }
+        elseif(isset($_SESSION['idEmpleado'])){
+            $emisor =  $_SESSION['nombreEmpleado'];
+            $idEmisor = $_SESSION['idEmpleado'];
+            $_SESSION['idEmisor'] = $idEmisor;
+        }
         // llamo a los setter de la instancia y les paso las variables 
         $mensaje->setEmisor($emisor);
         $mensaje->setIdEmisor($idEmisor);
@@ -356,7 +365,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
     public function chatPrivado(){
         $mensajes = new Mensaje();
-        $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$_SESSION['idEmpleado']);
+        $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$_SESSION['idEmisor']);
         //var_dump($mensajesChat);
         $this->view("chatPrivado", array(
             "mensajesChat" => $mensajesChat
@@ -442,7 +451,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $cpEmpleado = $_POST['cpEmpleado'];
         $numeroEmpleado = $_POST['numeroEmpleado'];
         $idEmpleado = $_POST['id'];
-         
+
 
 
 

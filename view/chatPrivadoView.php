@@ -15,7 +15,7 @@ include 'css/inc/navbarEmpleado.php';
 <div class="container enviarComunicado">
     <div class="row justify-content-center">
         <div>
-            <h4 class="h4 tituloComunicado justify-content-md-center" ><i class="fas fa-comments"></i>&nbsp;Chat con <?php echo $_SESSION['nombreDestinatario'] ?></h4>
+            <h4 class="h4 title tituloComunicado justify-content-md-center text-center" ><i class="fas fa-comments"></i>&nbsp;Chat con <?php echo $_SESSION['nombreDestinatario'] ?></h4>
         </div>
 
 
@@ -42,7 +42,7 @@ include 'css/inc/navbarEmpleado.php';
 
 
                                 
-                                    <dt class="col-sm-3" style="color: #1c62c4"><?php echo $msj->emisor; ?>:</dt>
+                                    <dt class="col-sm-3" style="<?php if($_SESSION['nombreDestinatario'] == $msj->emisor){echo "color: #1c62c4";}else{echo "color:red";}?>"><?php echo $msj->emisor; ?>:</dt>
                                 
                                 
                                     <dd class="col-sm-12 text-justify" style="color: #848484"><?php echo $msj->cuerpoMensaje; ?></dd>

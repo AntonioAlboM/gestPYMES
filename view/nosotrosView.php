@@ -12,8 +12,8 @@ include '/../css/inc/navbar.php';
             </div>
             <!-- /.col-lg-8 -->
             <div class="col-lg-4">
-                <h1>Sobre Nosotros</h1>
-                <p class="text-justify">Con más de cinco décadas de historia gestPYMES es una empresa innovadora y moderna, que busca la eficiencia de los procesos de trabajo. La experiencia y formación de nuestro equipo, nuestra organización y la tecnología de última generación nos posicionan entre las primeras empresas del sector de la ciudad de Fuenlabrada</p>
+                <h1 class="title">Sobre Nosotros</h1>
+                <p class="text-justify">Con más de cinco décadas de historia <span class="logo2">gestPYMES</span> es una empresa innovadora y moderna, que busca la eficiencia de los procesos de trabajo. La experiencia y formación de nuestro equipo, nuestra organización y la tecnología de última generación nos posicionan entre las primeras empresas del sector de la ciudad de Fuenlabrada</p>
                 
             </div>
             <!-- /.col-md-4 -->
@@ -25,7 +25,7 @@ include '/../css/inc/navbar.php';
     <!-- Call to Action Well -->
     <div class="card text-white bg-secondary my-4 text-center">
         <div class="card-body">
-            <h2 class="text-white m-0">Nuestros Valores:</h2>
+            <h2 class="text-white m-0 title">Nuestros Valores:</h2>
         </div>
     </div>
 
@@ -38,7 +38,7 @@ include '/../css/inc/navbar.php';
                         </div>
                 <div class="card-body">
                    
-                    <h2 class="card-title">Honestidad</h2>
+                    <h2 class="card-title title">Honestidad</h2>
                     <p class="card-text text-justify">Es el principal valor diferencial de la marca, la obligación de hacer las cosas bien desde la honradez y el respecto a la ética profesional, aportando al cliente un servicio de calidad que proporcione valor y utilidad. </p>
                 </div>
             </div>
@@ -50,7 +50,7 @@ include '/../css/inc/navbar.php';
                     <img class="img-fluid rounded" src="/gestpymes/css/img/compromiso.jpg" alt="">
                         </div>
                 <div class="card-body">
-                    <h2 class="card-title">Compromiso</h2>
+                    <h2 class="card-title title">Compromiso</h2>
                     <p class="card-text text-justify">La vinculación máxima con los objetivos de nuestros clientes es una prueba del compromiso y de la responsabilidad que asumimos en cada proyecto. Por ello, nuestro trato es siempre cercano y personalizado. </p>
                 </div>
             </div>
@@ -62,7 +62,7 @@ include '/../css/inc/navbar.php';
                     <img class="img-fluid rounded" src="/gestpymes/css/img/experiencia.jpg" alt="">
                         </div>
                 <div class="card-body">
-                    <h2 class="card-title">Experiencia</h2>
+                    <h2 class="card-title title">Experiencia</h2>
                     <p class="card-text text-justify">Los más de 50 años de servicio a nuestros clientes, diferencian nuestro trabajo, proporcionando un conocimiento y habilidad muy útil en las distintas áreas, procedimientos y sectores. </p>
                 </div>
                 

@@ -12,9 +12,9 @@ include 'css/inc/navbarEmpleado.php';
 
 <div  class="container  comunicadosArchivados ">
     <div class="row justify-content-center">
-        <div class="col col-md-8 offset-4">
+        <div class="col col-md-12">
             <div>
-                <h4 class="h4 tituloComunicado justify-content-md-center"><i class="fas fa-paste"></i>&nbsp;Sanciones</h4>
+                <h4 class="h4 tituloComunicado text-center  title justify-content-md-center"><i class="fas fa-paste"></i>&nbsp;Sanciones</h4>
             </div>
         </div>
     </div>

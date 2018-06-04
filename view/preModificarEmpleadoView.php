@@ -29,7 +29,7 @@ if (isset($_SESSION['gerente'])){
     <div class="container">
         <div class="col-md-12 rounded">
             <div class="row justify-content-center">
-                <h4 class="h4 tituloRegistroEmpleado"><i class="fas fa-redo-alt"></i>&nbsp;Formulario de modificación de empleado</h4>
+                <h4 class="h4 tituloRegistroEmpleado  text-center title"><i class="fas fa-redo-alt "></i>&nbsp;Formulario de modificación de empleado</h4>
             </div>
             <div class="form-row justify-content-center">
                 <form action="<?php echo $helper->url('Empresa','modificarEmpleadoAction'); ?>" method="POST">

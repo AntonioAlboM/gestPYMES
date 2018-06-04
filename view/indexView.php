@@ -6,7 +6,7 @@ include 'css/inc/navbar.php';
     <div class="container">
         <div class="row">
             <div class="col-md-6 mb-6">
-                <h2><strong>Gestione su negocio</strong></h2>
+                <h2 class="title"><strong>Gestione su negocio</strong></h2>
                 <p class="lead">
                     Lorem ipsum dolor sit amet, qui corpora oportere cu. Usu et iudico maluisset, pro ut lobortis vituperatoribus, percipit aliquando efficiendi est ex.
                 </p>
@@ -57,7 +57,7 @@ include 'css/inc/navbar.php';
                     <i class="fas fa-user"></i>
                 </div> 
                 <div class="features_content">
-                    <h3 class="titular">Empleado</h3>
+                    <h3 class="titular title">Empleado</h3>
                     <p class="descripcion">
                         Dolorem adipiscing definiebas ut nec. Dolore consectetuer eu vim, elit molestie ei has, petentium imperdiet in pri mel virtute nam.
                     </p>
@@ -73,7 +73,7 @@ include 'css/inc/navbar.php';
                     <i class="fas fa-users"></i>
                 </div> 
                 <div class="features_content">
-                    <h3 class="titular">Empresa</h3>
+                    <h3 class="titular title">Empresa</h3>
                     <p class="descripcion">
                         Dolorem adipiscing definiebas ut nec. Dolore consectetuer eu vim, elit molestie ei has, petentium imperdiet in pri mel virtute nam.
                     </p>

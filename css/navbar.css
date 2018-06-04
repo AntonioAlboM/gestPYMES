@@ -1,12 +1,33 @@
+
+@font-face { 
+    font-family: "rubberStamp";
+    src: url("/gestPYMES/css/fonts/rubberStamp.TTF");
+
+}
+@font-face { 
+    font-family: "navbar";
+    src: url("/gestPYMES/css/fonts/navbar.TTF");
+
+}
+
+html, body, .modal {
+  height: 100%;
+   font-family: 'Lusitana', serif;
+    font-size:1.1em;
+}
+
+.navbar, .title, #sidebar, .btn, .pie{
+ font-family: 'navbar';
+
+}
+
+
 header{
     margin-bottom: 50px;
     padding-top:0px;
 }
 
 
-html, body {
-  height: 100%;
-}
 
 
 
@@ -38,10 +59,12 @@ footer li{
     margin-top: 20px;
 }
 footer{
+    font-family: 'navbar' !important;
     padding-bottom: 25px;
     padding-top: 15px;
     font-size: 20px;
     position: relative;
+  
 
   height: 150px;
   clear:both;
@@ -71,6 +94,14 @@ footer{
 
 .logo{
     color:white;
+    font-family:rubberStamp;
+    font-size: 40px;
+}
+.logo2{
+
+ color:black;
+    font-family:rubberStamp;
+    font-size: 30px;
 }
 .map{
     width: 100%;
@@ -266,7 +297,9 @@ border: 2px solid #B0ACAC;
 margin-bottom:50px;
 }
 
-
+.imagenSidebar{
+    margin-bottom: 30px;
+}
 
 .notfound{
 color:red;

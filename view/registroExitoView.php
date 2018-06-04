@@ -1,15 +1,11 @@
 <?php 
-session_start();
-if (isset($_SESSION['gerente'])){
-    include 'css/inc/navbarGerente.php';
-    include'css/inc/prueba.php';
-}
+include '/../css/inc/navbar.php';
 ?>
 <section class="modificarEmpleado ">
     <div class="container">
-        <div class="col  ">
-            <div class="mb-4">
-        <div class="row  title justify-content-center">
+        <div class="col col-md-12 ">
+            <div class="">
+        <div class="row  title text-center justify-content-center">
             
                 <div><h4>Su acción se realizó con éxito</h4></div>
             
@@ -40,13 +36,4 @@ if (isset($_SESSION['gerente'])){
 
 
 
-
-</div>
-
-
-
-
-
-<?php include 'css/inc/footer.php';?>
-
-
+<?php include '/..css/inc/footer.php';?>   

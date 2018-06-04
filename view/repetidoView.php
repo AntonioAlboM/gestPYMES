@@ -9,7 +9,7 @@ include '/../css/inc/navbar.php';
 
         <!-- Heading Row -->
 
-        <div class="row titulo ">
+        <div class="row titulo title text-center">
             <div class="col-md-4 offset-4">
                 <h2>La empresa que intenta registrar ya existe</h2>
 

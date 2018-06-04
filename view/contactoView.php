@@ -18,7 +18,7 @@ include '/../css/inc/navbar.php';
             <div class="col-sm-7 contacto rounded">
 
                 <form action="/gestPYMES/plugin/phpmailer/consulta.php" method="POST">
-                    <h4 class="h4formulario">Rellene el formulario para recibir información</h4>
+                    <h4 class=" title h4formulario">Rellene el formulario para recibir información</h4>
                     <div class="form-row">
                         <div class="input-group mb-4 mr-sm-4 col-md-3">
                             <div class="input-group-prepend">
@@ -43,7 +43,7 @@ include '/../css/inc/navbar.php';
 
                     </div>
                     <div class="form-row">
-                        <label  class="col-form-label">Escriba su mensaje:</label>
+                        <label  class="col-form-label title">Escriba su mensaje:</label>
                         <div class="form-group col-md-10">
                             <textarea class="form-control all-elements-tooltip" id='summernote' name="mensajecontacto" rows="6" data-toggle="tooltip"  title="Consulta">
                             </textarea>
@@ -53,9 +53,9 @@ include '/../css/inc/navbar.php';
                 </form>
             </div>
             <div class="col-sm-4 contacto rounded">
-                <h4 class="h4formulario">Dirección</h4>
+                <h4 class="h4formulario title">Dirección</h4>
                 <address>
-                    <strong>GestPYMES</strong>
+                    <strong class="logo2">GestPYMES</strong>
                     <br>Calle Mostoles
                     <br>Fuenlabrada, Madrid
                     <br>
