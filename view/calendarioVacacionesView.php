@@ -3,9 +3,15 @@ session_start();
 if (isset($_SESSION['gerente'])){
     include 'css/inc/navbarGerente.php';
     include'css/inc/prueba.php';
+}else if(isset($_SESSION['nombreEmpleado'])){
+include 'css/inc/navbarEmpleado.php';
+    include'css/inc/sidebarEmpleado.php';
+
 }
 ?>
+
 <link rel="stylesheet" href="css/fullcalendar/fullcalendar.css" />
+
 <script src="css/fullCalendar/lib/jquery.min.js"></script>
 <script src="css/fullCalendar/lib/jquery-ui.min.js"></script>
 <script src="css/fullCalendar/lib/moment.min.js"></script>
@@ -29,7 +35,7 @@ if (isset($_SESSION['gerente'])){
             selectHelper:true,
             select: function(start, end, allDay)
             {
-                var title = prompt("Introduzca el empleado que disfrutará de éste dia");
+                var title = prompt("Introduzca el empleado que disfrutará de este dia");
                 if(title)
                 {
                     var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
@@ -114,7 +120,7 @@ if (isset($_SESSION['gerente'])){
         </div>
         <!--            <div class="form-row justify-content-center">-->
         <div class="col mb-12 ">
-            <h4  class=" text-center title calendar"><i class="fas fa-comments"></i>&nbsp;Calendario empleados</h4>
+            <h4  class=" text-center title calendar"><i class="fas fa-calendar-alt"></i>&nbsp;Calendario empleados</h4>
             <div id="chat">
                 
                     <div class=" ">

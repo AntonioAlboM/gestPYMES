@@ -377,6 +377,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
     public function vacaciones(){
         $this->view("calendarioVacaciones", array(
+        
             // "eventos" => $eventos
         ));
     }

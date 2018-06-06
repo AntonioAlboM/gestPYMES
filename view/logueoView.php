@@ -34,7 +34,7 @@ if (isset($_SESSION['gerente'])){
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <div>
-                            <img class="img-fluid rounded" src="/gestpymes/css/img/sancion.jpg" alt="">
+<!--                            <img class="img-fluid rounded" src="/gestpymes/css/img/sancion.jpg" alt="">-->
                         </div>
                         <div class="card-body">
 
@@ -50,7 +50,7 @@ if (isset($_SESSION['gerente'])){
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <div>
-                            <img class="img-fluid rounded " src="/gestpymes/css/img/registrar.jpg" alt="">
+<!--                            <img class="img-fluid rounded " src="/gestpymes/css/img/registrar.jpg" alt="">-->
                         </div>
                         <div class="card-body">
                             <h2 class="card-title title"> <form action="<?php echo $helper->url('Empresa','irAformRegistrarEmpleado'); ?>" method="POST">
@@ -64,7 +64,7 @@ if (isset($_SESSION['gerente'])){
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <div>
-                            <img class="img-fluid rounded" src="/gestpymes/css/img/comunicado.jpg" alt="">
+<!--                            <img class="img-fluid rounded" src="/gestpymes/css/img/comunicado.jpg" alt="">-->
                         </div>
                         <div class="card-body">
                             <h2 class="card-title title">  <form action="<?php echo $helper->url('Empresa','enviarComunicado'); ?>" method="POST">

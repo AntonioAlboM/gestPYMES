@@ -53,13 +53,9 @@
                             <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "vacaciones" value = "Vacaciones">Vacaciones</button>
                         </form>
                     </li>
-                    <li>
-                        <form action="<?php echo $helper->url('Empresa','permisos'); ?>" method="POST">
-                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "permisos" value = "Permisos">Permisos</button>
-                        </form>
-                    </li>
                 </ul>
             </li>
+             
         </ul>
     </nav>
 

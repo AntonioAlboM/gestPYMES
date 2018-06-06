@@ -1,9 +1,58 @@
-Creada la parte de Comunicados
+Modificaciones durante el fin de semana del 1 al 3 de junio.
 
-He tocado el archivo EmpresaController, abajo estan los metodos que he creado
 
-Corregido error que hacia que se descuadrasen los summernotes.
+- Arreglado visualizacion Sanciones
+- Sanciones y Comunicados anteriores ahora ordenan por fecha
+- Arreglado logo empresa sidebar
+- Arreglado mensajeria, ahora coge el id autoincrementado (id) en lugar del que vale siempre "0"(idEmpleado)
+- Arreglado mensajería, ahora muestra el nombre del receptor en lugar del id.
+- Mensajería completada.
+- Eliminado botón loguear del index, enlazado botones información
+- Php Mailer logrado:
+	cuenta:
+	numismaticacalderilla@gmail.com:calderilla1234
+-Corregido error summernote en phpmailer
+-Añadido session_destroy al desloguearse.
+-Actualizada la navbar del gerente.
+-Index logueo Empresa-> Suseptible a cambios, queda muy cutre salchichero.
+-Arreglado subida de fotos al registrar empresa.
+- Arreglado método de logueo (loguearCuenta) para empleado y $empleadoEnBaseDeDatos = $empleado->loguearEmpleado($empleadoQueSolicitaLoguearse); ahora devuelve el id autoincrementado y no el que siempre marca 0.
+-Modificada vista "comunicadosArchivadosView.php" para que funcione con gerente o empleados.
+-Comunicados COMPLETADO
+-Creada sidebarEmpleado
+- Arreglada posicion footer
 
-He creado la clase "Comunicado" y la tabla comunicados, la adjunto
+-Creado método sancionesArchivadasEmpleado() en empresacontroller. Devuelve las sanciones de un empleado.
+-modificacion sinSancionesView para que valga tanto para empleado como para gerente.
+- creado método devolverSancionesEmpleado en Sancion.php
+-Sanciones empleado COMPLETADO.
+-Modificado método loguearCuenta() de EMpresaController, ahora obtiene el logo de la empresa y lo muestra en sidebar. Añadido método obtenerLogo() en EMpresa.
+-Añadido método inicioEmpleado() en EmpresaController.
+- Creada navbar para el empleado.
+- Fusión de archivos modificados por David(creación correo)
+- Cambiado usuario por correo en el login
+- Añadido correo electronico a las vistas de crear empleado, modificar empleado y registrar emprsa.
 
-También he tocado el css
+
+
+
+-Corregido problema login. Cambiado nombre de variable de correo electronico en EMPLEAdo
+- Interfaz de chat para empleados.
+-Corregido error que siempre mostraba empresa repetida al intentar registrar una nueva 
+- Creación vista en caso de intentar registrar empresa repetida
+- Creación vista empresa registrada con éxito
+- Corregidas todas las vistas, ahora centran los títulos correctamente
+- Cambiadas las fuentes.
+
+
+
+
+
+06/06/18
+
+
+La sidebar se oculta al empequeñecer la ventana, haciendo efecto "responsive", la navbar es suficiente.
+Corregido sidebar, eliminado el apartado permisos. Ahora es simplemente vacaciones
+Cambiado el icono de calendario por el de un calendario (obvio).
+Agregado el elemento calendario a las navbar
+Comentadas las imagenes de los index-logueo.En mi opinión queda muy desangelado.

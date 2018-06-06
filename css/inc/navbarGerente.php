@@ -81,12 +81,17 @@
 
                                 </div>
                             </li>
-                            <li class="nav-item dropdown ">
+                            <li class="nav-item">
                                  <form action="<?php echo $helper->url('Empresa','nuevoMensaje'); ?>" method="POST">
                                     <button type="submit" class="nav-link btn btn-link Nosotros" >
                                         <i class="fas fa-comment"></i>&nbsp;Chat
                                     </button></form>
                                </li>
+                             <li class="nav-item ">
+                                 <form action="<?php echo $helper->url('Empresa','vacaciones'); ?>" method="POST">
+                                    <button type="submit" class="nav-link btn btn-link Nosotros" >
+                                        <i class="fas fa-calendar-alt"></i>&nbsp;Vacaciones
+                                    </button></form>
                              <li class="nav-item">
                                 <!--                                <a class="nav-link" href="#"><span class="oi oi-globe"></span>&nbsp;Nosotros</a>-->
                                 <form action="<?php echo $helper->url('Empresa','salir'); ?>" method="POST">
