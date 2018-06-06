@@ -6,9 +6,16 @@
 <link rel="stylesheet" href="/gestPYMES/css/fullcalendar.print.min.css">
 -->
 <link href="https://fonts.googleapis.com/css?family=Lusitana" rel="stylesheet"> 
+
 <link rel="stylesheet" href="/gestPYMES/css/navbar.css">
 <link href="/gestPYMES/css/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css?family=Cinzel|Great+Vibes|Libre+Franklin|Lobster" rel="stylesheet"> 
+
+
+
+
 
 <link rel="stylesheet" href="/gestPYMES/css/summernote/summernote-bs4.css">
 <link rel="stylesheet" href="/gestPYMES/css/summernote/summernote.css">

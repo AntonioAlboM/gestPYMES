@@ -16,6 +16,7 @@ if (isset($_SESSION['gerente'])){
     $(document).ready(function() {
        
         var calendar = $('#calendar').fullCalendar({
+            themeSystem: 'bootstrap4',
             editable:true,
             header:{
                 left:'prev,next today',
@@ -31,7 +32,7 @@ if (isset($_SESSION['gerente'])){
                 var title = prompt("Introduzca el empleado que disfrutará de éste dia");
                 if(title)
                 {
-                    var start = $.fullCalendar.formatDate(start, "D-MM-DD HH:mm:ss");
+                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                     var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
                     $.ajax({
                         url:"../gestPYMES/view/insert.php",
@@ -113,9 +114,9 @@ if (isset($_SESSION['gerente'])){
         </div>
         <!--            <div class="form-row justify-content-center">-->
         <div class="col mb-12 ">
-            <h4  justify-content-center ><i class="fas fa-comments"></i>&nbsp;Calendario empleados</h4>
+            <h4  class=" text-center title calendar"><i class="fas fa-comments"></i>&nbsp;Calendario empleados</h4>
             <div id="chat">
-                <div class="col mb-6 offset-4">
+                
                     <div class=" ">
                         <div id="calendar"></div>
                     </div>
@@ -126,7 +127,7 @@ if (isset($_SESSION['gerente'])){
         </div> 
 
 
-    </div>
+    
 
 
 

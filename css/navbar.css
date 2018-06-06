@@ -12,13 +12,12 @@
 
 html, body, .modal {
   height: 100%;
-   font-family: 'Lusitana', serif;
+  font-family: 'Libre Franklin', sans-serif;
     font-size:1.1em;
 }
 
 .navbar, .title, #sidebar, .btn, .pie{
- font-family: 'navbar';
-
+ font-family: 'Cinzel', serif;
 }
 
 
@@ -94,13 +93,13 @@ footer{
 
 .logo{
     color:white;
-    font-family:rubberStamp;
+    font-family: 'Lobster', cursive;
     font-size: 40px;
 }
 .logo2{
 
  color:black;
-    font-family:rubberStamp;
+   font-family: 'Lobster', cursive;
     font-size: 30px;
 }
 .map{
@@ -334,3 +333,6 @@ margin:0;
 
 }
 
+.calendar{
+    margin-bottom:50px;
+}
