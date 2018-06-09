@@ -56,3 +56,8 @@ Corregido sidebar, eliminado el apartado permisos. Ahora es simplemente vacacion
 Cambiado el icono de calendario por el de un calendario (obvio).
 Agregado el elemento calendario a las navbar
 Comentadas las imagenes de los index-logueo.En mi opinión queda muy desangelado.
+
+
+08/06/2018
+cambiado la vista de registro exitoso por "exitoView"
+modificación de la vista "repetidoView"

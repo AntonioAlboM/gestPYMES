@@ -140,7 +140,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 </script>
 -->
 <?php 
-                $this->view("registroExito", array(
+                $this->view("exito", array(
                 ));
             }
         }

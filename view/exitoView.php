@@ -3,6 +3,9 @@ session_start();
 if (isset($_SESSION['gerente'])){
     include 'css/inc/navbarGerente.php';
     include'css/inc/prueba.php';
+}else{
+    include 'css/inc/navbar.php';
+
 }
 ?>
 <section class="modificarEmpleado ">
