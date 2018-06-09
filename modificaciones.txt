@@ -61,3 +61,10 @@ Comentadas las imagenes de los index-logueo.En mi opinión queda muy desangelado.
 08/06/2018
 cambiado la vista de registro exitoso por "exitoView"
 modificación de la vista "repetidoView"
+
+
+09/06/2018
+Arreglado el chat, ahora guarda y muestra correctamente los mensajes.
+Ahora comprueba e-mail repetido al registrar empresa, tanto en tabla empleados como en empresas.
+Ahora comprueba e-mail repetido al registrar empleado, tanto en tabla empleados como en empresas.
+Creada vista de error como respuesta al intento de creación de empleados con correo repetido	

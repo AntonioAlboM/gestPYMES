@@ -95,6 +95,7 @@ class EmpresaController extends ControladorBase{
 
 
 
+
             while ($idEmpresaRepetido == true) {
                 $idEmpresa = mt_rand(1,100000);
                 $empresa->setIdEmpresa($idEmpresa); 
@@ -108,16 +109,31 @@ class EmpresaController extends ControladorBase{
                 }
             }
 
-            $empresa->setIdCorreoElectronico($idEmpleado); //seteo el idUsuario
-            $empresaQueSolicitaRegistrarse = $empresa->getIdCorreoElectronico(); //lo recojo
-            $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaRegistrarse); //consulto a la base de datos el idUsuario introducido por el usuario
+            //            $empresa->setIdCorreoElectronico($idEmpleado); //seteo el idUsuario
+            //            $empresaQueSolicitaRegistrarse = $empresa->getIdCorreoElectronico(); //lo recojo
+            //            $empresaEnBaseDeDatos = $empresa->loguearEmpresa($empresaQueSolicitaRegistrarse); //consulto a la base de datos el idUsuario introducido por el usuario
+            $empleado = new Empleado();
+            $empleado->setIdCorreoElectronico($idEmpleado); //seteo el idUsuario
+            $empresaQueSolicitaRegistrarse = $empleado->getIdCorreoElectronico(); //lo recojo
+            $empleadoEnBaseDeDatos = $empleado->comprobarGerente($empresaQueSolicitaRegistrarse); 
 
 
-            if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[3]){
+
+            //            if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[3]){
+            //
+            //                $this->view("repetido", array(
+            //                ));
+            //            }else 
+
+            if($empresaQueSolicitaRegistrarse == $empleadoEnBaseDeDatos[0]){
 
                 $this->view("repetido", array(
                 ));
+
             }else{
+
+
+
 
                 // llamo a los setter de la instancia y les paso las variables del formulario
                 $empresa->setFechaCreacion($fechaCreacion);
@@ -132,6 +148,10 @@ class EmpresaController extends ControladorBase{
                 $guardar = $empresa->guardarEmpresa();
                 //                $guardarEmpGerente = $empresa->registrarEmpleadoGerente();
 
+                $empleado->setNombre($gerente);
+                $empleado->setIdCorreoElectronico($idEmpleado);
+                $empleado->setIdEmpresa($idRegistroEmpresa);
+                $guardar = $empleado->registrarGerenteEmpleado();
                 // muestro la vista de REGISTRO OK
 ?>
 <!--
@@ -169,7 +189,30 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $fechaAlta = date("d.m.y"); 
         $idEmpleado = $_POST['correoElectronico'];
 
-        /*   while ($idEmpleadoRepetido == true) {
+
+        $empleado->setIdCorreoElectronico($idEmpleado); //seteo el idUsuario
+        $empleadoQueSolicitaRegistrarse = $empleado->getIdCorreoElectronico(); //lo recojo
+        $empleadoEnBaseDeDatos = $empleado->comprobarGerente($empleadoQueSolicitaRegistrarse); 
+
+
+
+        //            if($empresaQueSolicitaRegistrarse == $empresaEnBaseDeDatos[3]){
+        //
+        //                $this->view("repetido", array(
+        //                ));
+        //            }else 
+
+        if($empleadoQueSolicitaRegistrarse == $empleadoEnBaseDeDatos[0]){
+
+            $this->view("error", array(
+            ));
+
+        }else{
+
+
+
+
+            /*   while ($idEmpleadoRepetido == true) {
             $idEmpleado = mt_rand(1,100000);
             $empleado->setIdEmpleado($idEmpleado); 
             $idRegistroEmpleado = $empleado->getIdEmpleado();
@@ -181,33 +224,34 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $idEmpleadoRepetido = false;
             }
         }*/
-        // llamo a los setter de la instancia y les paso las variables del formulario
-        $empleado->setIdCorreoElectronico($idEmpleado);
-        $empleado->setNombre($nombreEmpleado);
-        $empleado->setApellidos($apellidoEmpleado);
-        $empleado->setDni($dniEmpleado);
-        $empleado->setPass($passEmpleado);
-        $empleado->setFechaNacimiento($fechaNacimientoEmpleado);
-        $empleado->setLocalidad($localidadEmpleado);
-        $empleado->setProvincia($provinciaEmpleado);
-        $empleado->setCalle($calleEmpleado);
-        $empleado->setNumero($numeroEmpleado);
-        $empleado->setPiso($pisoEmpleado);
-        $empleado->setLetra($letraEmpleado);
-        $empleado->setCp($cpEmpleado);
-        $empleado->setIdEmpresa($_SESSION['idEmpresa']);
-        $empleado->setNumSanciones($numSanciones);
-        $empleado->setFechaAlta($fechaAlta);
+            // llamo a los setter de la instancia y les paso las variables del formulario
+            $empleado->setIdCorreoElectronico($idEmpleado);
+            $empleado->setNombre($nombreEmpleado);
+            $empleado->setApellidos($apellidoEmpleado);
+            $empleado->setDni($dniEmpleado);
+            $empleado->setPass($passEmpleado);
+            $empleado->setFechaNacimiento($fechaNacimientoEmpleado);
+            $empleado->setLocalidad($localidadEmpleado);
+            $empleado->setProvincia($provinciaEmpleado);
+            $empleado->setCalle($calleEmpleado);
+            $empleado->setNumero($numeroEmpleado);
+            $empleado->setPiso($pisoEmpleado);
+            $empleado->setLetra($letraEmpleado);
+            $empleado->setCp($cpEmpleado);
+            $empleado->setIdEmpresa($_SESSION['idEmpresa']);
+            $empleado->setNumSanciones($numSanciones);
+            $empleado->setFechaAlta($fechaAlta);
 
 
-        $guardar = $empleado->registrarEmpleado();
+            $guardar = $empleado->registrarEmpleado();
 
-        // redireccionamos al controlador usuarios y metodo registroOk
+            // redireccionamos al controlador usuarios y metodo registroOk
 
 
-        $this->view("exito", array(
-        ));
-    }	
+            $this->view("exito", array(
+            ));
+        }	
+    }
 
     public function index(){
         // cargamos la vista index y le pasamos valores
@@ -228,7 +272,6 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
         if($rol == "Empresa"){
             $empresa = new Empresa();
-
             $usuario = $_POST['nombre-login']; //es el correo electronico
             $pass = $_POST['clave-login'];
 
@@ -245,6 +288,10 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $_SESSION['idEmpresa'] = $empresaEnBaseDeDatos[2]; //guardo idEmpresa
                 $_SESSION['idEmpleado'] = $empresaEnBaseDeDatos[3]; //guardo idEmpleado
                 $_SESSION['logo'] = $empresaEnBaseDeDatos[4];
+                $empleado = new Empleado();
+                $idGerenteEmpleado = $empleado->getIdGerente($_SESSION['idEmpleado']);
+                $_SESSION['id'] = $idGerenteEmpleado [0];
+
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
@@ -324,7 +371,8 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $Receptor = $empleado->getDatosEmpleado($_SESSION["idDestinatario"]);
         $nombreReceptor = $Receptor->nombre;
         $_SESSION['nombreDestinatario'] = $nombreReceptor;
-        $emisor =  $_SESSION['idEmpleado'];
+        $emisor =  $_SESSION['id'];
+
         $mensajes = new Mensaje();
         $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$emisor);
 
@@ -340,16 +388,13 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         // variables que quiero
         $cuerpoMensaje = $_POST['mensaje'];
         $receptor = $_SESSION['nombreDestinatario'];
-
+        $idEmisor = $_SESSION['id'];
+        $_SESSION['idEmisor'] = $idEmisor;
         if(isset($_SESSION['gerente'])){
             $emisor =  $_SESSION['gerente'];
-            $idEmisor = $_SESSION['idEmpresa'];    
-            $_SESSION['idEmisor'] = $idEmisor;
         }
         elseif(isset($_SESSION['idEmpleado'])){
             $emisor =  $_SESSION['nombreEmpleado'];
-            $idEmisor = $_SESSION['idEmpleado'];
-            $_SESSION['idEmisor'] = $idEmisor;
         }
         // llamo a los setter de la instancia y les paso las variables 
         $mensaje->setEmisor($emisor);
@@ -377,7 +422,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
     public function vacaciones(){
         $this->view("calendarioVacaciones", array(
-        
+
             // "eventos" => $eventos
         ));
     }

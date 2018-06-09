@@ -52,65 +52,65 @@ class EntidadBase{
 
     }
 
-    //Modificar la localidad del empleado
-    public function actualizarLocalidadEmpleado($idEmpleado,$localidad){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET localidad = '$localidad' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
-
-    //Actualizar la provincia del empleado
-    public function actualizarProvinciaEmpleado($idEmpleado,$provincia){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET provincia = '$provincia' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
-
-    //Actualizar la calle del empleado
-    public function actualizarCalleEmpleado($idEmpleado,$calle){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET calle = '$calle' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
-
-    //Actualizar el numero del empleado
-    public function actualizarNumeroEmpleado($idEmpleado,$numero){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET numero = '$numero' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
-
-    //Actualizar el piso del empleado
-    public function actualizarPisoEmpleado($idEmpleado,$piso){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET piso = '$piso' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
-
-    //Actualizar la letra del piso del empleado
-    public function actualizarLetraEmpleado($idEmpleado,$letra){
-        // consulta la tabla que le pasamos ordenado por el id
-        $query = $this->db->prepare("UPDATE $this->table SET letra = '$letra' WHERE idEmpleado = $idEmpleado");
-        $query->execute();
-        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-        return $resultado;
-
-    }
+//    //Modificar la localidad del empleado
+//    public function actualizarLocalidadEmpleado($idEmpleado,$localidad){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET localidad = '$localidad' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
+//
+//    //Actualizar la provincia del empleado
+//    public function actualizarProvinciaEmpleado($idEmpleado,$provincia){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET provincia = '$provincia' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
+//
+//    //Actualizar la calle del empleado
+//    public function actualizarCalleEmpleado($idEmpleado,$calle){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET calle = '$calle' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
+//
+//    //Actualizar el numero del empleado
+//    public function actualizarNumeroEmpleado($idEmpleado,$numero){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET numero = '$numero' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
+//
+//    //Actualizar el piso del empleado
+//    public function actualizarPisoEmpleado($idEmpleado,$piso){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET piso = '$piso' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
+//
+//    //Actualizar la letra del piso del empleado
+//    public function actualizarLetraEmpleado($idEmpleado,$letra){
+//        // consulta la tabla que le pasamos ordenado por el id
+//        $query = $this->db->prepare("UPDATE $this->table SET letra = '$letra' WHERE idEmpleado = $idEmpleado");
+//        $query->execute();
+//        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+//        return $resultado;
+//
+//    }
 
     //Actualizar sanciones del empleado
     //no hace falta 

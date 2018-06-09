@@ -27,11 +27,11 @@ class Empleado extends EntidadBase{
         parent::__construct($table);
     }
 
-     public function getIdCorreoElectronico()
+    public function getIdCorreoElectronico()
     {
         return $this->correoElectronico;
     }
-    
+
     public function setIdCorreoElectronico($correoElectronico)
     {
         $this->correoElectronico = $correoElectronico;
@@ -217,7 +217,7 @@ class Empleado extends EntidadBase{
 
     public function registrarEmpleado(){
 
-       $query = "INSERT INTO empleados (correoElectronico,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->correoElectronico."',"
+        $query = "INSERT INTO empleados (correoElectronico,nombre,apellidos,dni,pass,fechaNacimiento,localidad,provincia,calle,numero,piso,letra,cp,idEmpresa,numSanciones,fechaAlta)". " VALUES('".$this->correoElectronico."',"
             ."'".$this->nombre."',"
             ."'".$this->apellidos."',"
             ."'".$this->dni."',"
@@ -238,6 +238,19 @@ class Empleado extends EntidadBase{
         $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
         $guardarEmpleado = $guardar->execute();
         return $guardarEmpleado;
+
+    }
+
+    public function registrarGerenteEmpleado(){
+        $query = "INSERT INTO empleados (correoElectronico,nombre,idEmpresa) VALUES('".$this->correoElectronico."',"
+            ."'".$this->nombre."',"
+            ."'".$this->idEmpresa."'"
+            .")";
+
+        $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
+        $guardarEmpleado = $guardar->execute();
+        return $guardarEmpleado;
+
 
     }
 
@@ -264,7 +277,7 @@ class Empleado extends EntidadBase{
     }
 
 
-   public function loguearEmpleado($correoElectronico)
+    public function loguearEmpleado($correoElectronico)
     {
         $consulta = $this->db()->prepare("SELECT nombre, pass ,correoElectronico, apellidos, idEmpresa, id FROM empleados WHERE correoElectronico = '" . $correoElectronico . "'");
         $consulta->execute();
@@ -282,10 +295,33 @@ class Empleado extends EntidadBase{
         return $cuenta;
 
     }
-    
-    
+
+    public function comprobarGerente($correoElectronico){
+        $consulta = $this->db()->prepare("SELECT correoElectronico FROM empleados WHERE correoElectronico = '" . $correoElectronico . "'");
+        $consulta->execute();
 
 
+        while ($fila = $consulta->fetch()) {
+            $cuenta[] = $fila[0]; //correo
+
+        }
+
+        return $cuenta;
+
+    }
+
+    public function getIdGerente($correoElectronico){
+        $consulta = $this->db()->prepare("SELECT id FROM empleados WHERE correoElectronico = '" . $correoElectronico . "'");
+        $consulta->execute();
+
+
+        while ($fila = $consulta->fetch()) {
+            $cuenta[] = $fila[0]; //id
+
+        }
+
+        return $cuenta;
+    }
 
 
 
