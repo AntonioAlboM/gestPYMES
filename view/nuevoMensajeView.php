@@ -23,21 +23,32 @@ include 'css/inc/navbarEmpleado.php';
                             <div class="input-group mb-12 ">
                               <?php echo $paginar[1]; ?>
                        
-                        <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
+                        <table class="table cargarEmpleados table-striped table-bordered table-hover">
                                 <th class="title">Nombre</th>
                                 <th class="title">Apellidos</th>
                                 <th class="title">Selección</th>
                                 
+                            
+                                
                                 <tbody>
                                    
-                                   <?php   $resultados = $paginar[0];//for( $i = 0; $i < count($resultados); $i++ ): ?>
+                                   <?php   $resultados = $paginar[0]; $nuevos = $paginar[2];?>
                                     <?php foreach ($resultados as $datos){?>
                                    <tr>
                                                 <td><?php echo $datos->nombre;?></td>
-                                                <td><?php echo $datos->apellidos; ?></td>
+                                                <td><?php echo $datos->apellidos;?></td>
                                        
-                                         <td ><input type="radio" name="destinatario" value="<?php echo $datos->id; ?>">
-                                               
+                                            
+                                        
+                                      
+                                       
+                                       <td ><input type="radio" name="destinatario" value="<?php echo $datos->id;?>"></td>
+                                          <?php foreach($nuevos as $id){
+                                                   
+                                                if($datos->id == $id->idEmisor){
+                                       ?>
+                                         <td>Nuevos</td>
+                                             <?php }} ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

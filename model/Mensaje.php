@@ -8,7 +8,7 @@ class Mensaje extends EntidadBase{
     private $cuerpoMensaje; //texto mensaje
     private $idReceptor; //idUsuario que lo recibe
     private $receptor; //nombre receptor
-
+    private $nuevo = 1;
 
     public function __construct(){
         $table = "mensajes";
@@ -85,12 +85,13 @@ class Mensaje extends EntidadBase{
 
 
     public function guardarMensajePrivado(){
-        $query = "INSERT INTO mensajes (id,emisor,idEmisor,cuerpoMensaje,idReceptor,receptor) VALUES ('".$this->id."',"
+        $query = "INSERT INTO mensajes (id,emisor,idEmisor,cuerpoMensaje,idReceptor,receptor,leido) VALUES ('".$this->id."',"
             ."'".$this->emisor."',"
             ."'".$this->idEmisor."',"
             ."'".$this->cuerpoMensaje."',"
             ."'".$this->idReceptor."',"
-            ."'".$this->receptor."'"
+            ."'".$this->receptor."',"
+            ."'".$this->nuevo."'"
             .")";
 
         $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
@@ -101,10 +102,20 @@ class Mensaje extends EntidadBase{
     }
 
     public function comprobarMensajes($id){
-        $query = "SELECT COUNT from mensajes WHERE idReceptor =$id and leido = 0";
-        $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
-        $numero= $guardar->execute();  
-        return $numero;
+       
+        $query = $this->db()->prepare("select idEmisor from mensajes where idReceptor = $id and leido >0 group by idEmisor");
+        $query->execute();
+        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+        return $resultado;
     }
+    
+    public function marcarLeidos($idReceptor, $idEmisor){
+        $query = $this->db()->prepare("UPDATE mensajes SET leido = 0 WHERE idReceptor = $idReceptor and idEmisor=$idEmisor");
+        $query->execute();
+        $resultado = $query->fetchAll(PDO::FETCH_OBJ);
+        return $resultado;
+    
+    }
+    
 }
 ?>

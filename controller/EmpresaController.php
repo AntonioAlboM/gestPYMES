@@ -291,6 +291,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $empleado = new Empleado();
                 $idGerenteEmpleado = $empleado->getIdGerente($_SESSION['idEmpleado']);
                 $_SESSION['id'] = $idGerenteEmpleado [0];
+               
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
                 $mensaje = new Mensaje();
@@ -375,6 +376,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
         $mensajes = new Mensaje();
         $mensajesChat = $mensajes->mostrarMensajes($_SESSION["idDestinatario"],$emisor);
+        $leido = $mensajes->marcarLeidos($_SESSION['id'], $_SESSION["idDestinatario"]);
 
         $this->view("chatPrivado", array(
             "mensajesChat" => $mensajesChat
@@ -704,10 +706,11 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $paginas->setIdEmpresa($_SESSION['idEmpresa']);
         $paginas->setTotal();
         $paginas->setAccion('nuevoMensaje');
-
+        $mensaje = new Mensaje();
         // $paginar = $paginas->consultar($x);
         $paginar[0] = $paginas->getDatos($pagina);
         $paginar[1] = $paginas->crearLinks( $enlaces );
+        $paginar[2] = $mensaje->comprobarMensajes($_SESSION['id']);  
         $this->view("nuevoMensaje",array( "paginar"=>$paginar));
     }
 

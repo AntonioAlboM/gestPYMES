@@ -69,3 +69,9 @@ Ahora comprueba e-mail repetido al registrar empresa, tanto en tabla empleados c
 Ahora comprueba e-mail repetido al registrar empleado, tanto en tabla empleados como en empresas.
 Creada vista de error como respuesta al intento de creación de empleados con correo repetido
 Corregido boton calendario sidebar: ahora no se despliega	
+
+
+10/06/2018
+creada paginacion
+arreglado acordeones
+ahora se muestra si el usuario tiene mensajes nuevos al ir a la tabla de usuarios de chat, estos se borran al abrir chat con el emisor del mensaje
