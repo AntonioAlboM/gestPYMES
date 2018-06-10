@@ -11,7 +11,7 @@ $(document).ready(function () {
         $('.all-elements-tooltip').tooltip()
     })
 
-    $('a').click(function() {
+    $('#sidebar a').click(function() {
         //store the id of the collapsible element
         localStorage.setItem('collapseItem', $(this).attr('href'));
     })

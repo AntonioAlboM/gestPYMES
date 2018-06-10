@@ -291,11 +291,10 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $empleado = new Empleado();
                 $idGerenteEmpleado = $empleado->getIdGerente($_SESSION['idEmpleado']);
                 $_SESSION['id'] = $idGerenteEmpleado [0];
-
-
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
-
+                $mensaje = new Mensaje();
+                $_SESSION['mensajes'] = $mensaje->comprobarMensajes($_SESSION['id']);
                 // cargamos la vista registro y le pasamos valores
                 $this->view("logueo", array());
             }else{
@@ -329,7 +328,8 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
                 $empresa = new Empresa();
                 $logo = $empresa->obtenerLogo( $_SESSION['idEmpresa']); 
                 $_SESSION['logo'] = $logo;
-
+                $mensaje = new Mensaje();
+                $_SESSION['mensajes'] = $mensaje->comprobarMensajes($_SESSION['id']);
 
                 // redireccciono al controlador y el metodo logueo
                 //$this->redirect("Empresa","logueo");
@@ -350,7 +350,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     //     =====Mensajeria=====
 
     //elegir empleado al que escribir
-    public function nuevoMensaje (){
+    /*  public function nuevoMensaje (){
         // cargamos la vista 
         $empleado = new Empleado(); 
 
@@ -358,7 +358,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         $this->view("nuevoMensaje", array(
             "EmpleadosEmpresa" => $allEmpleadosEmpresa
         ));
-    }
+    }*/
 
     //ventana del chat con el empleado
     public function irAchatPrivado(){
@@ -437,13 +437,13 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
             $this->view("index", array());
         }
     }
-    public function modificarEmpleado(){
-        $empleado = new Empleado(); 
-        $empleados = $empleado->getEmpleadosEmpresa($_SESSION['idEmpresa']);
-        $this->view("modificarEmpleado", array(
-            "empleados" => $empleados
-        ));
-    }
+    //    public function modificarEmpleado(){
+    //        $empleado = new Empleado(); 
+    //        $empleados = $empleado->getEmpleadosEmpresa($_SESSION['idEmpresa']);
+    //        $this->view("modificarEmpleado", array(
+    //            "empleados" => $empleados
+    //        ));
+    //    }
 
     public function cargarDatosEmpleado(){
         $idEmpleado = $_POST['destinatario'];
@@ -456,13 +456,13 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     }
 
 
-    public function eliminarEmpleado(){
+    /* public function eliminarEmpleado(){
         $empleado = new Empleado(); 
         $empleados = $empleado->getEmpleadosEmpresa($_SESSION['idEmpresa']);
         $this->view("eliminarEmpleado", array(
             "empleados" => $empleados
         ));
-    }
+    }*/
 
 
     public function eliminarEmpleadoAction(){
@@ -577,14 +577,14 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
 
     }
 
-    public function cargarEmpleadosSanciones(){
+    /*  public function cargarEmpleadosSanciones(){
         $empleado = new Empleado(); 
         $allEmpleados = $empleado->getEmpleadosEmpresa($_SESSION['idEmpresa']);
         $this->view("sancionar", array(
             "allEmpleados" => $allEmpleados
         ));
 
-    }
+    }*/
 
     public function sancionarEmpleado(){
         //        $empleado = new Empleado();
@@ -652,6 +652,65 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
         session_destroy();
         $this->view("index",array());
     }
+    //10-06-18 Antonio-------------------------------------------------------------------------------------------------------------------------------
+    public function modificarEmpleado(){
+        $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
+        $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
+        $paginas = new Paginar();
+        $paginas->setIdEmpresa($_SESSION['idEmpresa']);
+        $paginas->setTotal();
+        $paginas->setAccion('modificarEmpleado');
+
+        // $paginar = $paginas->consultar($x);
+        $paginar[0] = $paginas->getDatos($pagina);
+        $paginar[1] = $paginas->crearLinks( $enlaces );
+        $this->view("paginar",array( "paginar"=>$paginar));
+
+    }
+
+    public function cargarEmpleadosSanciones(){
+        $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
+        $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
+        $paginas = new Paginar();
+        $paginas->setIdEmpresa($_SESSION['idEmpresa']);
+        $paginas->setTotal();
+        $paginas->setAccion('cargarEmpleadosSanciones');
+
+        // $paginar = $paginas->consultar($x);
+        $paginar[0] = $paginas->getDatos($pagina);
+        $paginar[1] = $paginas->crearLinks( $enlaces );
+        $this->view("sancionar",array( "paginar"=>$paginar));
+
+    }
+
+    public function eliminarEmpleado(){
+        $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
+        $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
+        $paginas = new Paginar();
+        $paginas->setIdEmpresa($_SESSION['idEmpresa']);
+        $paginas->setTotal();
+        $paginas->setAccion('eliminarEmpleado');
+
+        // $paginar = $paginas->consultar($x);
+        $paginar[0] = $paginas->getDatos($pagina);
+        $paginar[1] = $paginas->crearLinks( $enlaces );
+        $this->view("eliminarEmpleado",array( "paginar"=>$paginar));
+    }
+
+    public function nuevoMensaje (){
+        $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
+        $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
+        $paginas = new Paginar();
+        $paginas->setIdEmpresa($_SESSION['idEmpresa']);
+        $paginas->setTotal();
+        $paginas->setAccion('nuevoMensaje');
+
+        // $paginar = $paginas->consultar($x);
+        $paginar[0] = $paginas->getDatos($pagina);
+        $paginar[1] = $paginas->crearLinks( $enlaces );
+        $this->view("nuevoMensaje",array( "paginar"=>$paginar));
+    }
+
 
 }
 

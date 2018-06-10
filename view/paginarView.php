@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 if (isset($_SESSION['gerente'])){
     include 'css/inc/navbarGerente.php';
     include'css/inc/prueba.php';
@@ -8,20 +8,18 @@ include 'css/inc/navbarEmpleado.php';
     include'css/inc/sidebarEmpleado.php';
 
 }
-?>
-
-<section class="crearEmpleado">
+?>    
+       <section class="modificarEmpleado">
     <div class="container">
-        <div class="col-md-12 rounded">
-            <div class="row justify-content-center">
-                <h4 class="h4 title tituloRegistroEmpleado text-center"><i class="fas fa-comments"></i>&nbsp; Elija un empleado para comenzar el Chat</h4>
-            </div>
-            <div class="form-row justify-content-center">
-                <form action="<?php echo $helper->url('Empresa','irAchatPrivado'); ?>" method="POST">
-   <div class="form-row justify-content-center">
-                        <div class="col">
-                            <div class="input-group mb-12 ">
-                              <?php echo $paginar[1]; ?>
+        <div class="row justify-content-center">
+                <div class="col mb-12 ">
+                <h4 class="d-flex justify-content-center text-center h4 tituloRegistroEmpleado title"><i class="fas fa-user-edit"></i>&nbsp;Escoja el empleado que desea modificar</h4>
+                    </div>
+        </div>
+<!--            <div class="form-row justify-content-center">-->
+
+                <form action="<?php echo $helper->url('Empresa','cargarDatosEmpleado'); ?>" method="POST">
+                            <?php echo $paginar[1]; ?>
                        
                         <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
                                 <th class="title">Nombre</th>
@@ -47,33 +45,23 @@ include 'css/inc/navbarEmpleado.php';
                         </ul>
                       <br>
 
-                           <div class="form-row ">  
+                    <div class="form-row ">  
                         <div class="col offset-md-11 ">
                             <input type="submit" name="modificarEmpleado" class="siguiente btn btn-primary" value="Siguiente">
                                </div>
                             </div>
-                            </div></div>
-                    </div>
+                            
+                    
                 </form>
-                
-                
-        </div> 
-    </div>
-
-    </div>
-</section>
 
 
+    
 
+           </div></section>
 
 </div>
 
-
-
-
-
-<?php include 'css/inc/footer.php';?>
-
+<?php include 'css/inc/footer.php'?>
 
 
 

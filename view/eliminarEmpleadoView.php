@@ -19,27 +19,29 @@ if (isset($_SESSION['gerente'])){
             <div class="form-row justify-content-center">
                 <div class="col">
                     <div class="input-group mb-12 ">
-
+                        <?php echo $paginar[1]; ?>
                         <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
                             <th class="title">Nombre</th>
                             <th class="title">Apellidos</th>
                             <th class="title">Selección</th>
-                            <?php 
 
-                            foreach ($empleados as $emp) {
-                                $nombre = $emp->nombre;
-                                $apellido= $emp->apellidos;
-                                $idEmpleado = $emp->id;
-                            ?>
-                            <tr>
-                                <td scope="row"><?php echo $nombre ;?></td>
-                                <td><?php echo $apellido ;?></td>
-                                <td ><input type="radio" name="destinatario" value="<?php echo $idEmpleado ;?>"></td>
-                            </tr> 
-                            <?php  
-                            }
-                            ?>
+                            <tbody>
+
+                                <?php   $resultados = $paginar[0];//for( $i = 0; $i < count($resultados); $i++ ): ?>
+                                <?php foreach ($resultados as $datos){?>
+                                <tr>
+                                    <td><?php echo $datos->nombre;?></td>
+                                    <td><?php echo $datos->apellidos; ?></td>
+
+                                    <td ><input type="radio" name="destinatario" value="<?php echo $datos->id; ?>">
+
+                                </tr>
+                                <?php } ?>
+                            </tbody>
                         </table>
+                        <ul class="pagination">
+                            <?php echo $paginar[1]; ?>
+                        </ul>
                         <br>
 
 
@@ -84,49 +86,49 @@ if (isset($_SESSION['gerente'])){
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                                 </div>
 
-                                
-                        </div>
-                    </div> 
-                </div>
-                                    
 
-            </div>
-            
+                            </div>
+                        </div> 
+                    </div>
+
+
+                </div>
+
             </div>
         </form>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </section>
-
-
-
-
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+</div>
 
 
 

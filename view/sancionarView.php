@@ -22,26 +22,30 @@ if (isset($_SESSION['gerente'])){
 
                         <div class="input-group mb-4 ">
 
-                            <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
+                             <?php echo $paginar[1]; ?>
+                       
+                        <table class="table cargarEmpleados table-striped table-bordered table-hover  ">
                                 <th class="title">Nombre</th>
                                 <th class="title">Apellidos</th>
                                 <th class="title">Selección</th>
-                                <?php 
-
-                                foreach ($allEmpleados as $emp) {
-                                    $nombre = $emp->nombre;
-                                    $apellido= $emp->apellidos;
-                                    $idEmpleado = $emp->id;
-                                ?>
-                                <tr>
-                                    <td scope="row "><?php echo $nombre; ?></td>
-                                    <td><?php echo $apellido ;?></td>
-                                    <td ><input type="radio" name="destinatario" value="<?php echo $idEmpleado; ?>"></td>
-                                </tr> 
-                                <?php  
-                                }
-                                ?>
-                            </table>
+                                
+                                <tbody>
+                                   
+                                   <?php   $resultados = $paginar[0];//for( $i = 0; $i < count($resultados); $i++ ): ?>
+                                    <?php foreach ($resultados as $datos){?>
+                                   <tr>
+                                                <td><?php echo $datos->nombre;?></td>
+                                                <td><?php echo $datos->apellidos; ?></td>
+                                       
+                                         <td ><input type="radio" name="destinatario" value="<?php echo $datos->id; ?>">
+                                               
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                        </table>
+                            <ul class="pagination">
+                            <?php echo $paginar[1]; ?>
+                        </ul>
                             <br>
                             <div class="container summernote ">
                                 <div class="row">

@@ -99,5 +99,12 @@ class Mensaje extends EntidadBase{
         return $guardarMensaje;
 
     }
+
+    public function comprobarMensajes($id){
+        $query = "SELECT COUNT from mensajes WHERE idReceptor =$id and leido = 0";
+        $guardar = $this->db()->prepare($query); //metodo db eheredado de EntidadBase,le pasamos la query
+        $numero= $guardar->execute();  
+        return $numero;
+    }
 }
 ?>

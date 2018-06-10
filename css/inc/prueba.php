@@ -77,14 +77,7 @@
             </li>
 
             <li>
-                <a href="#calendarioSubmenu" id="calendario" data-toggle="collapse" class="btn btn-dark btn-md btn-block"aria-expanded="false">Calendario</a>
-                <ul class="collapse list-unstyled" id="calendarioSubmenu">
-                    <li>
-                        <form action="<?php echo $helper->url('Empresa','vacaciones'); ?>" method="POST">
-                            <button type = "submit" class="btn btn-secondary btn-sm btn-block"  name = "vacaciones" value = "Vacaciones">Vacaciones</button>
-                        </form>
-                    </li>
-                </ul>
+               <a href="<?php echo "index.php?controller=Empresa&action=vacaciones"; ?>" class="btn btn-dark btn-md btn-block" >Vacaciones</a>
             </li>
         </ul>
     </nav>

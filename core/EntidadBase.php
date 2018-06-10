@@ -144,6 +144,14 @@ class EntidadBase{
         
     
     }
+    
+    public function getNuevosMensajes($idReceptor, $idEmpresa){
+        $query = $this->db->prepare("SELECT * FROM $this->table where id = $idEmpleado");
+        $query->execute();
+        $resultado = $query->fetch(PDO::FETCH_OBJ);
+        return $resultado;
+    
+    }
 
 //======================================================================
 
