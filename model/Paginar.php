@@ -38,7 +38,7 @@ class Paginar extends EntidadBase {
     }
     
      public function consultarMensajes($inicio){
-          $consulta = $this->db()->prepare("SELECT u.nombre,u.apellidos, u.id ,p.idReceptor,p.idEmisor, sum(p.leido) as leido FROM empleados u left JOIN mensajes p ON u.id = p.idEmisor WHERE u.idEmpresa = $this->idEmpresa group by u.id order by sum(p.leido) desc, u.apellidos limit $inicio, $this->limite ");
+          $consulta = $this->db()->prepare("SELECT u.nombre,u.apellidos, u.id ,p.idReceptor, p.idEmisor, sum(COALESCE(p.leido,0)) as leido FROM empleados u left JOIN mensajes p ON u.id = p.idEmisor WHERE u.idEmpresa = $this->idEmpresa group by u.id order by sum(COALESCE(p.leido,0))  desc, u.apellidos limit $inicio, $this->limite ");
         $consulta->execute();
 
         $resultado =$consulta->fetchAll(PDO::FETCH_OBJ);
