@@ -47,7 +47,7 @@ include 'css/inc/navbarEmpleado.php';
                                                    
                                                 if($datos->id == $id->idEmisor){
                                        ?>
-                                         <td>Nuevos</td>
+                                         <td><span class="badge badge-dark">Nuevos Mensajes</span></td>
                                              <?php }} ?>
                                         </tr>
                                     <?php } ?>

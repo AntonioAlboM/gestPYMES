@@ -702,7 +702,7 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     public function nuevoMensaje (){
         $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
         $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
-        $paginas = new Paginar();
+        $paginas = new PaginarMensajes();
         $paginas->setIdEmpresa($_SESSION['idEmpresa']);
         $paginas->setTotal();
         $paginas->setAccion('nuevoMensaje');

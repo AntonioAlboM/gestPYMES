@@ -2,6 +2,10 @@
 <?php 
 include 'css/inc/navbar.php';
 ?>
+<script>
+localStorage.clear()
+
+</script>
 <section id="intro">
     <div class="container">
         <div class="row">

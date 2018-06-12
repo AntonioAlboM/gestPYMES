@@ -25,7 +25,7 @@ class Paginar extends EntidadBase {
     }
 
     public function consultar($inicio){
-        $consulta = $this->db()->prepare("SELECT * FROM empleados where idEmpresa = $this->idEmpresa order by apellidos asc limit $inicio, $this->limite ");
+        $consulta = $this->db()->prepare("SELECT * FROM empleados where idEmpresa = $this->idEmpresa order by apellidos  asc limit $inicio, $this->limite ");
         $consulta->execute();
 
         $resultado =$consulta->fetchAll(PDO::FETCH_OBJ);
