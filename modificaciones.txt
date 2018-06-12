@@ -75,3 +75,7 @@ Corregido boton calendario sidebar: ahora no se despliega
 creada paginacion
 arreglado acordeones
 ahora se muestra si el usuario tiene mensajes nuevos al ir a la tabla de usuarios de chat, estos se borran al abrir chat con el emisor del mensaje
+
+
+11-12/06/2018
+Paginación ordenada en el chat, salen primero los empleados con mensajes que no se han leido.

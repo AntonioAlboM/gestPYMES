@@ -702,13 +702,13 @@ alert("Su empresa se ha registrado correctamente\nAhora puede iniciar sesion")
     public function nuevoMensaje (){
         $pagina  = ( isset( $_GET['page'] ) ) ? $_GET['page'] : 1;
         $enlaces  = ( isset( $_GET['enlaces'] ) ) ? $_GET['enlaces'] : 5;
-        $paginas = new PaginarMensajes();
+        $paginas = new Paginar();
         $paginas->setIdEmpresa($_SESSION['idEmpresa']);
         $paginas->setTotal();
         $paginas->setAccion('nuevoMensaje');
         $mensaje = new Mensaje();
         // $paginar = $paginas->consultar($x);
-        $paginar[0] = $paginas->getDatos($pagina);
+        $paginar[0] = $paginas->getDatosMensajes($pagina);
         $paginar[1] = $paginas->crearLinks( $enlaces );
         $paginar[2] = $mensaje->comprobarMensajes($_SESSION['id']);  
         $this->view("nuevoMensaje",array( "paginar"=>$paginar));
